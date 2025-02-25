@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?><project name="Untitled Gantt Project" company="" webLink="http://" view-date="2025-02-25" view-index="0" gantt-divider-location="351" resource-divider-location="300" version="3.3.3316" locale="fr_FR">
+    <description/>
+    <view zooming-state="default:2" id="gantt-chart">
+        <field id="tpd3" name="Nom" width="200" order="0"/>
+        <field id="tpd4" name="Date de début" width="75" order="1"/>
+        <field id="tpd5" name="Date de fin" width="75" order="2"/>
+        <field id="tpd15" name="Notes" width="20" order="3"/>
+        <option id="filter.completedTasks" value="false"/>
+        <option id="filter.dueTodayTasks" value="false"/>
+        <option id="filter.overdueTasks" value="false"/>
+        <option id="filter.inProgressTodayTasks" value="false"/>
+        <option id="color.recent"><![CDATA[#000000]]></option>
+    </view>
+    <view id="resource-table">
+        <field id="0" name="Nom" width="210" order="0"/>
+        <field id="1" name="Rôle par défaut" width="86" order="1"/>
+    </view>
+    <!-- -->
+    <calendars>
+        <day-types>
+            <day-type id="0"/>
+            <day-type id="1"/>
+            <default-week id="1" name="default" sun="1" mon="0" tue="0" wed="0" thu="0" fri="0" sat="1"/>
+            <only-show-weekends value="false"/>
+            <overriden-day-types/>
+            <days/>
+        </day-types>
+    </calendars>
+    <tasks empty-milestones="true">
+        <taskproperties>
+            <taskproperty id="tpd0" name="type" type="default" valuetype="icon"/>
+            <taskproperty id="tpd1" name="priority" type="default" valuetype="icon"/>
+            <taskproperty id="tpd2" name="info" type="default" valuetype="icon"/>
+            <taskproperty id="tpd3" name="name" type="default" valuetype="text"/>
+            <taskproperty id="tpd4" name="begindate" type="default" valuetype="date"/>
+            <taskproperty id="tpd5" name="enddate" type="default" valuetype="date"/>
+            <taskproperty id="tpd6" name="duration" type="default" valuetype="int"/>
+            <taskproperty id="tpd7" name="completion" type="default" valuetype="int"/>
+            <taskproperty id="tpd8" name="coordinator" type="default" valuetype="text"/>
+            <taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/>
+        </taskproperties>
+        <task id="0" uid="b328554d77a1416a84ae48e9137854a7" name="Lot_A" meeting="false" start="2025-02-25" duration="1" complete="0" expand="true">
+            <depend id="5" type="2" difference="0" hardness="Strong"/>
+            <task id="9" uid="80569a3cc4d34288bb37694aa65f87c9" name="Tache_A2" meeting="false" start="2025-02-25" duration="1" complete="0" expand="true"/>
+            <task id="10" uid="c0a509ab2c0d47e8914c5f527043a566" name="Tache_A3" meeting="false" start="2025-02-25" duration="1" complete="0" expand="true"/>
+            <task id="26" uid="94394b53c7884cd68d0042b91f93de48" name="Tache_A4" meeting="false" start="2025-02-25" duration="1" complete="0" expand="true"/>
+            <task id="8" uid="2b584a9216b544018a58425f54fb8b51" name="Tache_A1" meeting="false" start="2025-02-25" duration="1" complete="0" expand="true"/>
+        </task>
+        <task id="5" uid="486dd3bbe2a04e998452f8d39652c62b" name="Lot_B" color="#8cb6ce" meeting="false" start="2025-02-26" duration="1" complete="0" expand="false">
+            <depend id="4" type="2" difference="0" hardness="Strong"/>
+            <task id="15" uid="6d383ac1dd5b4b95a3d8a949a29f9c0c" name="Tache_B4" meeting="false" start="2025-02-26" duration="1" complete="0" expand="true"/>
+            <task id="14" uid="95bcd1969f1f456bad061fdcfacfd3fa" name="Tache_B3" meeting="false" start="2025-02-26" duration="1" complete="0" expand="true"/>
+            <task id="13" uid="40143ef795c848fcae53ad7e71f825f2" name="Tache_B2" meeting="false" start="2025-02-26" duration="1" complete="0" expand="true"/>
+            <task id="12" uid="e4f278559caa4ab6ac3ff4d2c1228493" name="Tache_B1" meeting="false" start="2025-02-26" duration="1" complete="0" expand="true"/>
+        </task>
+        <task id="4" uid="4b598225ed9b49618e81ea4b3d4c94e9" name="Lot_C" color="#8cb6ce" meeting="false" start="2025-02-27" duration="1" complete="0" expand="false">
+            <depend id="3" type="2" difference="0" hardness="Strong"/>
+            <task id="27" uid="381b8d7f9259446291a44e0f4c4a1199" name="Tache_C10" meeting="false" start="2025-02-27" duration="1" complete="0" expand="true"/>
+            <task id="28" uid="d7c77f6e1ed0446cb7cc1601637ad3ad" name="Tache_C11" meeting="false" start="2025-02-27" duration="1" complete="0" expand="true"/>
+            <task id="29" uid="2fc8ad96a61f47d49e5adff8294ba2fe" name="Tache_C12" meeting="false" start="2025-02-27" duration="1" complete="0" expand="true"/>
+            <task id="25" uid="e140459ac0604653bbc29574bd52fc71" name="Tache_C9" meeting="false" start="2025-02-27" duration="1" complete="0" expand="true"/>
+            <task id="24" uid="cccd61a6da364ee6bd423427674e1667" name="Tache_C8" meeting="false" start="2025-02-27" duration="1" complete="0" expand="true"/>
+            <task id="23" uid="9a92cb5b46b64f8eaf6e5f37b2b5b65a" name="Tache_C7" meeting="false" start="2025-02-27" duration="1" complete="0" expand="true"/>
+            <task id="22" uid="cc30850a28ca45d199d43caaae7eff4e" name="Tache_C6" meeting="false" start="2025-02-27" duration="1" complete="0" expand="true"/>
+            <task id="21" uid="39e275ec4590486c84253aacc373c734" name="Tache_C5" meeting="false" start="2025-02-27" duration="1" complete="0" expand="true"/>
+            <task id="16" uid="00b53c367303447684cd346b88bf734a" name="Tache_C1" meeting="false" start="2025-02-27" duration="1" complete="0" expand="true"/>
+            <task id="19" uid="4d94bc30f34b40ef9619bb1eb644329d" name="Tache_C4" meeting="false" start="2025-02-27" duration="1" complete="0" expand="true"/>
+            <task id="11" uid="b07d6b9796964d8c84e7b6796261367d" name="Tache_A4" meeting="false" start="2025-02-27" duration="1" complete="0" expand="true"/>
+            <task id="18" uid="b609abd763fb4355afc5d3792364ad18" name="Tache_C3" meeting="false" start="2025-02-27" duration="1" complete="0" expand="true"/>
+            <task id="17" uid="fecafca7092e411cbcffdbdbed9fec70" name="Tache_C2" meeting="false" start="2025-02-27" duration="1" complete="0" expand="true"/>
+        </task>
+        <task id="3" uid="9ccedb427c4842f7b49a4f666560034f" name="Lot_D" color="#8cb6ce" meeting="false" start="2025-02-28" duration="1" complete="0" expand="false">
+            <depend id="2" type="2" difference="0" hardness="Strong"/>
+            <task id="20" uid="5d4ebb5bcb974508b3db312123f33741" name="Tache_D1" meeting="false" start="2025-02-28" duration="1" complete="0" expand="true"/>
+            <task id="30" uid="5ee3eac424b04aedb9a8d3b7ebefc8a5" name="Tache_D2" meeting="false" start="2025-02-28" duration="1" complete="0" expand="true"/>
+        </task>
+        <task id="2" uid="20d86b48f6ef4fd6afc21dd710ca3b47" name="Lot_E" color="#8cb6ce" meeting="false" start="2025-03-03" duration="1" complete="0" expand="false">
+            <depend id="1" type="2" difference="0" hardness="Strong"/>
+            <task id="34" uid="600b0ead197b418783a9e6626f0cad93" name="Tache_E2" meeting="false" start="2025-03-03" duration="1" complete="0" expand="true"/>
+            <task id="33" uid="f680562b355c41fb882988517fc42dce" name="Tache_E1" meeting="false" start="2025-03-03" duration="1" complete="0" expand="true"/>
+            <task id="35" uid="6994fb181ca14e62aa6952e5c38bb6e4" name="Tache_E3" meeting="false" start="2025-03-03" duration="1" complete="0" expand="true"/>
+            <task id="36" uid="ed0455a6cceb42c5aa34565240852397" name="Tache_E4" meeting="false" start="2025-03-03" duration="1" complete="0" expand="true"/>
+        </task>
+        <task id="1" uid="c7aafda28afd4a0d84112b94d18d5b3d" name="Lot_F" color="#8cb6ce" meeting="false" start="2025-03-04" duration="1" complete="0" expand="false">
+            <depend id="6" type="2" difference="0" hardness="Strong"/>
+            <task id="37" uid="f53476260ebe4e9dba96cc337876e078" name="Tache_F1" meeting="false" start="2025-03-04" duration="1" complete="0" expand="true"/>
+            <task id="38" uid="1b7d541542004587b44c670aadb4b53a" name="Tache_F2" meeting="false" start="2025-03-04" duration="1" complete="0" expand="true"/>
+            <task id="39" uid="e6936816907c40ce9687658ac4f3e708" name="Tache_F3" meeting="false" start="2025-03-04" duration="1" complete="0" expand="true"/>
+            <task id="40" uid="efbeba56a22441a18baac9e92e58377b" name="Tache_F4" meeting="false" start="2025-03-04" duration="1" complete="0" expand="true"/>
+            <task id="41" uid="3b561ced1c71462497dbb6097dd1bd6b" name="Tache_F5" meeting="false" start="2025-03-04" duration="1" complete="0" expand="true"/>
+            <task id="42" uid="2245544bbb104c818ac1f823528ef7d7" name="Tache_F6" meeting="false" start="2025-03-04" duration="1" complete="0" expand="true"/>
+            <task id="43" uid="f8773e8e67d34695a00390ec87bf001a" name="Tache_F7" meeting="false" start="2025-03-04" duration="1" complete="0" expand="true"/>
+            <task id="44" uid="1753496c93f0499ba7faf3b23325e6db" name="Tache_F8" meeting="false" start="2025-03-04" duration="1" complete="0" expand="true"/>
+        </task>
+        <task id="6" uid="c9e2b351dbdf41afa49129ebeeb1d809" name="Lot G" color="#8cb6ce" meeting="false" start="2025-03-05" duration="1" complete="0" expand="false">
+            <depend id="7" type="2" difference="0" hardness="Strong"/>
+            <task id="45" uid="f7585a1f2c104124912e4fe94d8086ec" name="Tache_G1" meeting="false" start="2025-03-05" duration="1" complete="0" expand="true"/>
+            <task id="46" uid="c1e177521d4f4fb7912ffda160b13cd0" name="Tache_G2" meeting="false" start="2025-03-05" duration="1" complete="0" expand="true"/>
+        </task>
+        <task id="7" uid="189c6da689ca4a9388e32533c8ab053a" name="Lot_H" color="#8cb6ce" meeting="false" start="2025-03-06" duration="1" complete="0" expand="false">
+            <depend id="51" type="2" difference="0" hardness="Strong"/>
+            <task id="47" uid="212f5cde24324db3acb514f44fbfe4f9" name="Tache_H1" meeting="false" start="2025-03-06" duration="1" complete="0" expand="true"/>
+            <task id="48" uid="2752f86d3ffe4c9ea80f6d5cc8fa9896" name="Tache_H2" meeting="false" start="2025-03-06" duration="1" complete="0" expand="true"/>
+            <task id="49" uid="d5fa3bf4cb0b4f77a4e0ad2534b7a01f" name="Tache_H3" meeting="false" start="2025-03-06" duration="1" complete="0" expand="true"/>
+            <task id="50" uid="91d98d439f0c47969a5e210113550851" name="Tache_H4" meeting="false" start="2025-03-06" duration="1" complete="0" expand="true"/>
+        </task>
+        <task id="51" uid="652b9fc16e524338ad32a6f4cb700da2" name="Lot_I" color="#000000" meeting="false" start="2025-03-07" duration="1" complete="0" expand="false">
+            <task id="55" uid="c61d5f21101d4c04a38b07b31f3b9a83" name="Tache_I4" meeting="false" start="2025-03-07" duration="1" complete="0" expand="true"/>
+            <task id="54" uid="d317eb5232d6472c9683b964516f16b5" name="Tache_I3" meeting="false" start="2025-03-07" duration="1" complete="0" expand="true"/>
+            <task id="53" uid="b47b22340bbb4443906811829c00a974" name="Tache_I2" meeting="false" start="2025-03-07" duration="1" complete="0" expand="true"/>
+            <task id="52" uid="770520a0ec0548db97943d72c06b6127" name="Tache_I1" meeting="false" start="2025-03-07" duration="1" complete="0" expand="true"/>
+        </task>
+    </tasks>
+    <resources>
+        <resource id="0" name="Anjy STADELMANN" function="Default:1" contacts="" phone=""/>
+        <resource id="1" name="Marc-Antony TCHICOU" function="Default:0" contacts="" phone=""/>
+        <resource id="2" name="Cris DEMANOU II" function="Default:0" contacts="" phone=""/>
+        <resource id="3" name="Steve DIEME" function="Default:0" contacts="" phone=""/>
+    </resources>
+    <allocations>
+        <allocation task-id="10" resource-id="0" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="9" resource-id="1" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="26" resource-id="2" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="8" resource-id="3" function="Default:0" responsible="true" load="100.0"/>
+    </allocations>
+    <vacations/>
+    <previous/>
+    <roles roleset-name="Default"/>
+</project>

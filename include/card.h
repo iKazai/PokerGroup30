@@ -1,5 +1,8 @@
 #ifndef CARD_H
 #define CARD_H
+#include "board.h"
+#include "player.h"
+#include <stdio.h>
 
 /**
  * @brief Définition d'un type abstrait card.
@@ -20,7 +23,7 @@ card create_card();
 /**
  * @brief Libère toute la mémoire allouée à une carte.
  * 
- * @param c La carte à libérer.
+ * @param card La carte à libérer.
  */
 
 void free_card(card);
@@ -28,7 +31,7 @@ void free_card(card);
 /**
  * @brief Récupère l'identifiant unique d'une carte.
  * 
- * @param c La carte dont on veut connaître l'ID.
+ * @param card La carte dont on veut connaître l'ID.
  * @return int L'identifiant unique de la carte.
  */
 
@@ -37,7 +40,7 @@ void get_card_id(card);
 /**
  * @brief Récupère une carte à partir de son identifiant unique.
  * 
- * @param id L'identifiant de la carte recherchée.
+ * @param int L'identifiant de la carte recherchée.
  * @return card La carte correspondant à l'ID donné.
  */
 
@@ -46,7 +49,7 @@ card get_card_by_id(int);
 /**
  * @brief Récupère la valeur inscrite sur une carte.
  * 
- * @param c La carte dont on veut connaître la valeur.
+ * @param card La carte dont on veut connaître la valeur.
  * @return int La valeur de la carte.
  */
 
@@ -55,8 +58,8 @@ int get_value(card);
 /**
  * @brief Modifie la valeur d'une carte.
  * 
- * @param c La carte dont on veut changer la valeur.
- * @param value La nouvelle valeur de la carte.
+ * @param card La carte dont on veut changer la valeur.
+ * @param int La nouvelle valeur de la carte.
  */
 
 void set_value(card , int);

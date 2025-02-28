@@ -9,7 +9,11 @@
  *        Une variable de type card permet d'accéder aux informations d'une carte.
  */
 
-typedef struct card* card;
+typedef struct card_base* card;
+struct card_base {
+    int id;
+    int value;
+};
 
 /**
  * @brief Crée une nouvelle carte sans valeur initiale.

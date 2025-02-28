@@ -1,8 +1,16 @@
 #ifndef BOARD_H
 #define BOARD_H
 
+#include "player.h"
+#include "card.h"
 
-typedef void* board;
+typedef struct board_base* board;
+struct board_base {
+    player* p;
+    card* c;
+    int team_id[2];
+    int score[2];
+};
 
 
 /**
@@ -48,7 +56,7 @@ void add_player_to_team(board b, int team_id, player p);
  * \param team_id : l'identifiant de l'équipe choisie
  * \return un entier
  */
-int get_number_of_players_in_team(board b, int team_id);
+int get_number_of_players_in_team(board b, int* team_id);
 
 /**
  * \brief renvoie la joueuse de l'équipe dont l'id est team_id et dont l'indice dans l'équipe est player_index.

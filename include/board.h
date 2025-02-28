@@ -1,13 +1,20 @@
 #ifndef BOARD_H
 #define BOARD_H
 
+#include "player.h"
+#include "card.h"
 
-typedef void* board;
+typedef struct board_base* board;
+struct board_base {
+    player* p;
+    card* c;
+    int team_id[2];
+    int score[2];
+};
 
 
 /**
  * \brief initialise un plateau sans joueur et sans carte 
- * \param aucun
  * \return un plateau sans joueur et sans carte
  */
 board create_board();
@@ -15,14 +22,13 @@ board create_board();
 /**
  * \brief libère l'espace allouée à un plateau
  * \param b : un plateau
- * \return rien
  */
 void free_board(board b);
 
 /**
  * \brief Ajouter une équipe sur un plateau
  * \param b : un plateau
- * \return rien
+
  */
 void add_team(board b);
 
@@ -38,7 +44,7 @@ int get_number_of_teams(board b);
  * \param b : un plateau
  * \param team_id : l'identifiant de l'équipe choisie
  * \param p : un joueur
- * \return rien
+
  */
 void add_player_to_team(board b, int team_id, player p);
 
@@ -48,7 +54,7 @@ void add_player_to_team(board b, int team_id, player p);
  * \param team_id : l'identifiant de l'équipe choisie
  * \return un entier
  */
-int get_number_of_players_in_team(board b, int team_id);
+int get_number_of_players_in_team(board b, int* team_id);
 
 /**
  * \brief renvoie la joueuse de l'équipe dont l'id est team_id et dont l'indice dans l'équipe est player_index.
@@ -72,7 +78,7 @@ int get_score_of_team(board b, int team_id);
  * \param b : un plateau
  * \param team_id : l'identifiant de l'équipe choisie
  * \param n : un entier postif
- * \return rien
+
  */
 void set_score_of_team(board b, int team_id, int n);
 
@@ -80,7 +86,7 @@ void set_score_of_team(board b, int team_id, int n);
  * \brief ajoute la carte à l'ensemble des cartes mises de côté
  * \param b : un plateau
  * \param card : carte de jeu
- * \return rien
+
  */
 void add_out_of_game_card(board b, card c);
 
@@ -104,7 +110,6 @@ card get_out_of_game_card(board b, int card_index);
  * \brief supprime la carte de l'ensemble des cartes mises de côté
  * \param b : un plateau
  * \param c : une carte
- * \return rien
  */
 void remove_out_of_game_card(board b, card c);
 

@@ -8,6 +8,7 @@ struct player_base{
     card* deck;
     card* laids;    // pas sur des types
     int slate;
+    int team;
 } typedef player_base;
 
 /**

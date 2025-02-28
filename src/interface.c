@@ -5,6 +5,9 @@
 #include <stdio.h>
 
 void display_board(board b){
+    for(int i = 0; i < 4; i++){
+        printf("Le joueur %d:\n",b->);
+    }
     return;
 }
 

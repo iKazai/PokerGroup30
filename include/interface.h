@@ -9,7 +9,6 @@
  * 
  * \param board Le plateau de jeu contenant l'état actuel de la partie.
  */
-
 void display_board(board);
 
 /**
@@ -18,7 +17,6 @@ void display_board(board);
  * \param player Le joueur qui doit entrer un pari.
  * \return int Le pari encodé sous forme d'un entier.
  */
-
 int ask_gamble(player);
 
 /**
@@ -27,7 +25,6 @@ int ask_gamble(player);
  * \param player Le joueur en cours.
  * \return int Le nombre de cartes que la joueuse veut poser.
  */
-
 int ask_number_of_cards(player);
 
 /**
@@ -36,7 +33,6 @@ int ask_number_of_cards(player);
  * \param player Le joueur en cours.
  * \return card La carte choisie par la joueuse.
  */
-
 card ask_card(player);
 
 /**
@@ -44,7 +40,6 @@ card ask_card(player);
  * 
  * \param board Le plateau de jeu à afficher en fin de partie.
  */
-
 void display_end_game(board);
 
 /**
@@ -52,7 +47,6 @@ void display_end_game(board);
  * 
  * \param message Le message à afficher.
  */
-
 void display_message(char*);
 
 #endif

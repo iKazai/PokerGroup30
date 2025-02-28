@@ -1,7 +1,7 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
-#include "cards.h" 
+#include "card.h" 
 
 struct player_base{
     int id;

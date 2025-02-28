@@ -14,7 +14,7 @@ void display_board(board b){
     for(int i = 0; i < 4; i++){
         printf("Le joueur %d:\n",b->p[i]);
         printf("Cartes en main : ");
-        for(int j = 0; )
+        for(int j = 0; j < )
 
     }
     return;

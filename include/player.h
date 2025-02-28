@@ -16,7 +16,7 @@ struct player_base{
 /**
  * \brief Type abstrait player
 */
-typedef player_base* player;
+typedef struct player_base* player;
 
 /**
  * \brief Initialise un joueur sans carte en main, sans carte posée sur la table et avec une ardoise vide.

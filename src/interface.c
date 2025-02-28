@@ -4,9 +4,18 @@
 #include "card.h"
 #include <stdio.h>
 
+void display_card(card c){
+    printf("ID de la carte : %d\n
+        Valeur de la carte : %d\n", c->id, c->value);
+    return;
+}
+
 void display_board(board b){
     for(int i = 0; i < 4; i++){
-        printf("Le joueur %d:\n",b->);
+        printf("Le joueur %d:\n",b->p[i]);
+        printf("Cartes en main : ");
+        for(int j = 0; )
+
     }
     return;
 }

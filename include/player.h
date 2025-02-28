@@ -2,19 +2,21 @@
 #define PLAYER_H
 
 #include "card.h" 
+#include <stdbool.h>
 
 struct player_base{
     int id;
     card* deck;
-    card* laids;    // pas sur des types
-    int slate;
+    int deck_size;
+    card* laids;    
+    bool slate;
     int team;
-} typedef player_base;
+};
 
 /**
  * \brief Type abstrait player
 */
-typedef void* player;
+typedef player_base* player;
 
 /**
  * \brief Initialise un joueur sans carte en main, sans carte posée sur la table et avec une ardoise vide.
@@ -57,7 +59,7 @@ void add_card_to_hand(player, card);
 int get_size_of_hand(player);
 
 /**
- * \brief Renvoie la carte d'index card_index du joueur
+ * \brief Renvoie la carte d'index \a card_index du joueur
  * \param Un joueur et un entier \a card_index
  * \return Une carte
 */

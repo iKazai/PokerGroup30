@@ -12,6 +12,12 @@
  */
 typedef struct card_base* card;
 
+typedef struct card_base* card;
+struct card_base {
+    int id;
+    int value;
+};
+
 /**
  * \brief Crée une nouvelle carte sans valeur initiale.
  *        Un identifiant unique lui est attribué.

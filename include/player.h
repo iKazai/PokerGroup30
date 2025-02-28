@@ -2,7 +2,10 @@
 #define PLAYER_H
 
 #include "card.h" 
+<<<<<<< HEAD
+=======
 #include <stdbool.h>
+>>>>>>> 39ed349b729d57b3a774601925348838d24f1c7c
 
 struct player_base{
     int id;
@@ -10,13 +13,13 @@ struct player_base{
     int deck_size;
     card* laids;    
     bool slate;
-    int team;
+    int team_id;
 };
 
 /**
  * \brief Type abstrait player
 */
-typedef player_base* player;
+typedef struct player_base* player;
 
 /**
  * \brief Initialise un joueur sans carte en main, sans carte posée sur la table et avec une ardoise vide.

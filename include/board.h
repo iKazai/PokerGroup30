@@ -6,9 +6,9 @@
 
 typedef struct board_base* board;
 struct board_base {
-    player* team;
+    player** teams;
     card* c;
-    int team_id;
+    int team_id[2];
     int* score;
 };
 

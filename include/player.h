@@ -1,7 +1,7 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
-#include "cards.h" 
+#include "card.h" 
 #include <stdbool.h>
 
 struct player_base{
@@ -11,7 +11,7 @@ struct player_base{
     card* laids;    
     bool slate;
     int team;
-} typedef player_base;
+};
 
 /**
  * \brief Type abstrait player

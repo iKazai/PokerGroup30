@@ -2,13 +2,14 @@
 #define PLAYER_H
 
 #include "cards.h" 
+#include <stdbool.h>
 
 struct player_base{
     int id;
     card* deck;
     int deck_size;
     card* laids;    
-    int slate;
+    bool slate;
     int team;
 } typedef player_base;
 

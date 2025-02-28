@@ -2,10 +2,7 @@
 #define PLAYER_H
 
 #include "card.h" 
-<<<<<<< HEAD
-=======
 #include <stdbool.h>
->>>>>>> 39ed349b729d57b3a774601925348838d24f1c7c
 
 struct player_base{
     int id;

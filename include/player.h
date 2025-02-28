@@ -10,7 +10,7 @@ struct player_base{
     int deck_size;
     card* laids;    
     bool slate;
-    int team;
+    int team_id;
 };
 
 /**

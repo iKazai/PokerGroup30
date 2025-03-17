@@ -5,24 +5,23 @@
 
 player players[3]; //creation d'un tableau pour stocker les joueurs present sur le plateau 
 player_count = 0; // nb de joueurs présent
-
+int player_id= 0; // initialisation d'un compteur pour attribuer un id unique
 player create_player(void){
     if (player_count>=4) return NULL;
     
-    int player_id=0; //initialisation d'un compteur pour attribuer un id unique
-    
     player new_player = malloc(sizeof(struct player_base));
     if (!new_player) return NULL;
-
     
     new_player->deck = NULL;
     new_player->deck_size = 0;
     new_player->laids = NULL;
     new_player->slate = NULL;
-    new_player->id = player_id++;
+    new_player->id = player_id;
+    player_id++;
     new_player->team_id = -1;
 
     players[player_count]=new_player;
+    
     player_count++;
     return new_player;
 }

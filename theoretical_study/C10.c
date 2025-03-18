@@ -20,7 +20,7 @@ double* P_approx_2_alter(int n){
     {
         for (int l = 1; l < 4; l++)
         {
-            res[index++] = P_approx_2_1(k,l,n);
+            res[index++] = P_approx_2_1_alter(k,l,n);
         }
     }
     return res;

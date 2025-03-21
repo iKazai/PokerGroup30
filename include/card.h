@@ -34,7 +34,7 @@ void free_card(card);
  * \param card La carte dont on veut connaître l'ID.
  * \return int L'identifiant unique de la carte.
  */
-void get_card_id(card);
+int get_card_id(card);
 
 /**
  * \brief Récupère une carte à partir de son identifiant unique.

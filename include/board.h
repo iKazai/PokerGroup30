@@ -96,7 +96,7 @@ void add_out_of_game_card(board b, card c);
  * \param team_id : carte de jeu
  * \return un entier, le nombre de cartes mises de côté
  */
-int get_number_of_out_of_game_cards(board b, int team_id);
+int get_number_of_out_of_game_cards(board b);
 
 /**
  * \brief renvoie la carte mise de côté dont l'indice est card_index

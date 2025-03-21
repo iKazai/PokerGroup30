@@ -24,3 +24,23 @@ void free_card(card c){
     free(c);
 }
 
+int get_card_id(card c){
+    return c->id;
+}
+
+card get_card_by_id(int card_id){
+    for(int i=0;i<card_count;i++){
+        if (cards[i]->id == card_id){
+            return cards[i];
+        }
+    }
+    return NULL;
+}
+
+int get_value(card c){
+    c->value;
+}
+
+void set_value(card c , int val){
+    c->value=val;
+}

@@ -8,7 +8,8 @@ struct player_base{
     int id;
     card* deck;
     int deck_size;
-    card* laids;    
+    card* laids; 
+    int laids_size;   
     bool slate;
     int team_id;
 };

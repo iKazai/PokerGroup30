@@ -6,12 +6,10 @@
 
 typedef struct board_base* board;
 struct board_base {
-    player** teams;
-    int* team_sizes;
-    card* c;
-    int out_card_count;
-    int num_teams;
-    int* score;
+    player** teams;  
+    card* c;          
+    int team_id[2]; 
+    int* score;    
 };
 
 

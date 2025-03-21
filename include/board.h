@@ -7,8 +7,10 @@
 typedef struct board_base* board;
 struct board_base {
     player** teams;
+    int* team_sizes;
     card* c;
-    int team_id[2];
+    int out_card_count;
+    int num_teams;
     int* score;
 };
 
@@ -54,7 +56,7 @@ void add_player_to_team(board b, int team_id, player p);
  * \param team_id : l'identifiant de l'équipe choisie
  * \return un entier
  */
-int get_number_of_players_in_team(board b, int* team_id);
+int get_number_of_players_in_team(board b, int team_id);
 
 /**
  * \brief renvoie la joueuse de l'équipe dont l'id est team_id et dont l'indice dans l'équipe est player_index.

@@ -28,6 +28,8 @@ player create_player(void){
 
 
 void free_player(player p){
+    free(p->deck);
+    free(p->laids);
     free(p);
 }
 

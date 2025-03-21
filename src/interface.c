@@ -11,13 +11,16 @@ void display_card(card c){
 }
 
 void display_board(board b){
-    for(int i = 0; i < 4; i++){
-        printf("Le joueur %d:\n",b->p[i]);
-        printf("Cartes en main : ");
-        for(int j = 0; j < b->p[i]->deck_size; i++){
-            printf("Carte %d : %d \n", j, get_value(b->p[i]->deck[j]));
+    for(int i = 0; i < 2; i++){
+        printf("L'équipe %d:\n", b->team_id[i]);
+        printf("Score : %d\n", b->score[i]);
+        for(int j = 0; j < 2; j++){
+            printf("Le joueur %d:\n", b->teams[i][j]);
+            for (int k = 0; k < b->teams[i][j]->deck_size; k++){
+                printf("Carte %d : %d \n", k, get_value(b->teams[i][j]->deck[k]));
+            }
+            
         }
-
     }
     return;
 }

@@ -21,8 +21,6 @@ void display_board(board b){
             }
             
         }
-        printf("Cartes en main : ");
-
     }
     return;
 }

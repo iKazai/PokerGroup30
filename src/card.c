@@ -3,6 +3,7 @@
 card cards[19]; //creation d'un tableau pour stocker les cartes presente sur le plateau 
 int card_count = 0; // nb de carte présent
 int card_id = 0; // initialisation d'un compteur pour attribuer un id unique
+
 card create_card(){
     if (card_count>=20) return NULL;
     
@@ -17,5 +18,9 @@ card create_card(){
     
     card_count++;
     return new_card;
-test
 }
+
+void free_card(card c){
+    free(c);
+}
+

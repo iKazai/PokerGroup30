@@ -12,7 +12,7 @@
 typedef struct card_base* card;
 
 struct card_base {
-    int igd;
+    int id;
     int value;
 };
 

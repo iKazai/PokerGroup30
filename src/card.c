@@ -17,4 +17,5 @@ card create_card(){
     
     card_count++;
     return new_card;
+test
 }

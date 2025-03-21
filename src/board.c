@@ -7,54 +7,62 @@
 board create_board() {
     board b = malloc(sizeof(struct board_base));
 
-    b->teams = NULL;
-    b->team_sizes = NULL;
-    b->score = NULL;
-    b->num_teams = 0;
+    b->teams = malloc(2 * sizeof(player*));
+    for (int i = 0; i < 2; i++) 
+    {
+        b->teams[i] = malloc(2 * sizeof(player));
+    }
 
+    b->team_id[0] = 0;
+    b->team_id[1] = 1;
+
+    b->score = malloc(2 * sizeof(int));
+    for (int i = 0; i < 2; i++) 
+    {
+        b->score[i] = 0;
+    }
     b->c = NULL;
-    b->out_card_count = 0;
 
     return b;
 }
 
 void free_board(board b) 
 {
-    free(b->teams[0]);
-    free(b->teams[1]);
+    for (int i = 0; i < 2; i++) 
+    {
+        free(b->teams[i]);
+    }
     free(b->teams);
-    free(b->team_sizes);
     free(b->score);
     free(b->c);
     free(b);
 }
 
-void add_team(board b) 
-{
-    if (b->num_teams > 0)
-    {
-        return;
-    }
-    b->teams = malloc(2 * sizeof(player*));
-    b->team_sizes = malloc(2 * sizeof(int));
-    b->score = malloc(2 * sizeof(int));
+void add_team(board b) {
+     b->teams = malloc(2 * sizeof(player*));
     for (int i = 0; i < 2; i++) 
     {
         b->teams[i] = malloc(2 * sizeof(player));
-        b->team_sizes[i] = 0;
-        b->score[i] = 0;
+        for (int j = 0; j < 2; j++) {
+            b->teams[i][j] = NULL;
+        }
+        b->team_id[i] = i;
     }
-    b->num_teams = 2;
+    b->score = malloc(2 * sizeof(int));
+    b->score[0] = 0;
+    b->score[1] = 0;
 }
 
 void add_player_to_team(board b, int team_id, player p) 
 {
-    if (team_id < 0 || team_id > 1 || b->team_sizes[team_id] >= 2)
+    for (int i = 0; i < 2; i++) 
     {
-        return;
+        if (b->teams[team_id][i] == NULL) 
+        {
+            b->teams[team_id][i] = p;
+            return;
+        }
     }
-    b->teams[team_id][b->team_sizes[team_id]] = p;
-    b->team_sizes[team_id]++;
 }
 
 int get_number_of_teams(board b) 
@@ -64,23 +72,24 @@ int get_number_of_teams(board b)
 
 int get_number_of_players_in_team(board b, int team_id) 
 {
-    if (team_id < 0 || team_id > 1)
+    int count = 0;
+    for (int i = 0; i < 2; i++) 
     {
-        return 0;
+        if (b->teams[team_id][i] != NULL) 
+        {
+            count++;
+        }
     }
-    else 
-    {
-        return b->team_sizes[team_id];
-    }
+    return count;
 }
 
 player get_player(board b, int team_id, int player_index) 
 {
-    if (team_id < 0 || team_id > 1)
+    if (team_id < 0 || team_id >= 2) 
     {
         return NULL;
     }
-    else if (player_index < 0 || player_index >= b->team_sizes[team_id]) 
+    else if (player_index < 0 || player_index >= 2) 
     {
         return NULL;
     }
@@ -92,20 +101,19 @@ player get_player(board b, int team_id, int player_index)
 
 int get_score_of_team(board b, int team_id) 
 {
-    if (team_id < 0 || team_id > 1)
+    if (team_id < 0 || team_id >= 2) 
     {
         return -1;
-    } 
+    }
     else 
     {
         return b->score[team_id];
     }
-
 }
 
 void set_score_of_team(board b, int team_id, int score) 
 {
-    if (team_id < 0 || team_id > 1) 
+    if (team_id < 0 || team_id >= 2) 
     {
         return;
     }
@@ -114,62 +122,73 @@ void set_score_of_team(board b, int team_id, int score)
 
 void add_out_of_game_card(board b, card c) 
 {
-    card* ca = malloc((b->out_card_count + 1) * sizeof(card));
-    for (int i = 0; i < b->out_card_count; i++) 
+    int count = 0;
+    while (b->c && b->c[count])
     {
-        ca[i] = b->c[i];
-    }
-    ca[b->out_card_count] = c;
+        count++;
+    } 
 
+    card* new_cards = malloc((count + 2) * sizeof(card)); 
+    for (int i = 0; i < count; i++) 
+    {
+        new_cards[i] = b->c[i];
+    }
+    new_cards[count] = c;
+    new_cards[count + 1] = NULL;
     free(b->c);
-    b->c = ca;
-    b->out_card_count++;
+    b->c = new_cards;
 }
 
 int get_number_of_out_of_game_cards(board b) 
 {
-    return b->out_card_count;
+    int count = 0;
+    while (b->c && b->c[count])
+    {
+        count++;
+    }
+
+    return count;
 }
 
-card get_out_of_game_card(board b, int card_index) 
+card get_out_of_game_card(board b, int index) 
 {
-    if (card_index < 0 || card_index >= b->out_card_count)
+    int count = get_number_of_out_of_game_cards(b);
+    if (index < 0 || index >= count)
     {
-        return NULL;
+       return NULL; 
     }
-    else
+    else 
     {
-        return b->c[card_index];
+        return b->c[index];
     }
 }
-
 
 void remove_out_of_game_card(board b, card c) 
 {
+    int count = get_number_of_out_of_game_cards(b);
     int index = -1;
-    for (int i = 0; i < b->out_card_count; i++) 
+    for (int i = 0; i < count; i++) 
     {
         if (get_card_id(b->c[i]) == get_card_id(c)) 
         {
             index = i;
-            break;
+            return;
         }
     }
-
-    if (index == -1) return;
-
-    card* ca = malloc((b->out_card_count - 1) * sizeof(card));
+    if (index == -1) 
+    {
+        return;
+    }
+    card* new_cards = malloc(count * sizeof(card));
     int j = 0;
-    for (int i = 0; i < b->out_card_count; i++) 
+    for (int i = 0; i < count; i++) 
     {
         if (i != index) 
         {
-            ca[j] = b->c[i];
-            j++;
+            new_cards[j++] = b->c[i];
         }
     }
-
+    new_cards[j] = NULL;
     free(b->c);
-    b->c = ca;
-    b->out_card_count--;
+    b->c = new_cards;
 }

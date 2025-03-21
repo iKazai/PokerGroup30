@@ -15,7 +15,7 @@ void display_board(board b){
         printf("Le joueur %d:\n",b->p[i]);
         printf("Cartes en main : ");
         for(int j = 0; j < b->p[i]->deck_size; i++){
-            
+            printf("Carte %d : %d \n", j, get_value(b->p[i]->deck[j]));
         }
 
     }
@@ -44,6 +44,9 @@ card ask_card(player p){
 }
 
 void display_end_game(board b){
+    printf("La partie est terminée.\n");
+    int winner = b->score[0] > b->score[1] ? b->team_id[0] : b->team_id[1];
+    printf("L'équipe gagnante est l'equipe : %d\n", winner);
     return;
 }
 

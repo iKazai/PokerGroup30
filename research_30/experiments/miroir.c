@@ -1,12 +1,14 @@
+#include <stdlib.h>
 #include "miroir.h"
 
 
-bool paris_aleatoire(player p){
+bool paris_aleatoire(){
     return rand() % 2 == 0;
 }
 
 
 int find_min_card_value(player p){
+    if (p->deck_size == 0) return -1; 
     int min_value = 1000;
     for (int i = 0; i < p->deck_size; i++) {
         if (p->deck[i]->value < min_value) {
@@ -17,6 +19,7 @@ int find_min_card_value(player p){
 }
 
 int find_max_card_value(player p){
+    if (p->deck_size == 0) return -1;   
     int max_value = -1;
     for (int i = 0; i < p->deck_size; i++) {
         if (p->deck[i]->value > max_value) {

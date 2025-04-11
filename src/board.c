@@ -153,7 +153,7 @@ int get_number_of_out_of_game_cards(board b)
 card get_out_of_game_card(board b, int card_index) 
 {
     int count = get_number_of_out_of_game_cards(b);
-    if (card_index < 0 || index >= count)
+    if (card_index < 0 || card_index >= count)
     {
        return NULL; 
     }

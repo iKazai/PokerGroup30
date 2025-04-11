@@ -1,7 +1,5 @@
 #ifndef CARD_H
 #define CARD_H
-#include "board.h"
-#include "player.h"
 #include <stdio.h>
 
 
@@ -9,13 +7,14 @@
 /**
  * \brief Définition d'un type abstrait card. Une variable de type card permet d'accéder aux informations d'une carte.
  */
-typedef struct card_base* card;
+
 
 struct card_base {
     int id;
     int value;
 };
 
+typedef struct card_base* card;
 /**
  * \brief Crée une nouvelle carte sans valeur initiale
  * \ensures Un identifiant unique lui est attribué.

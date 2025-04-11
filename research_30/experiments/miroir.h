@@ -32,6 +32,6 @@ int find_max_card_value(player p);
 * \param Un joueur
 * \return Un booléen qui renvoie vrai si la condition d'agressivité est remplie, faux sinon
 */
-bool agressive(player p)
+bool agressive(player p);
 
 #endif

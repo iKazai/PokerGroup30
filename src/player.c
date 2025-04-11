@@ -4,7 +4,7 @@
 #include <stdbool.h>
 
 player players[3]; //creation d'un tableau pour stocker les joueurs present sur le plateau 
-player_count = 0; // nb de joueurs présent
+int player_count = 0; // nb de joueurs présent
 int player_id= 0; // initialisation d'un compteur pour attribuer un id unique
 player create_player(void){
     if (player_count>=4) return NULL;

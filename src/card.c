@@ -1,4 +1,5 @@
 #include "card.h"
+#include <stdlib.h>
 
 card cards[19]; //creation d'un tableau pour stocker les cartes presente sur le plateau 
 int card_count = 0; // nb de carte présent

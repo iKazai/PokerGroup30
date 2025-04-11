@@ -5,8 +5,7 @@
 #include <stdio.h>
 
 void display_card(card c){
-    printf("ID de la carte : %d\n
-        Valeur de la carte : %d\n", c->id, c->value);
+    printf("ID de la carte : %d\n Valeur de la carte : %d\n", c->id, c->value);
     return;
 }
 

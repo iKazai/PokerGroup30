@@ -111,6 +111,6 @@ int get_slate(player);
  * \brief Remplace le pari du joueur par le pari codé avec l'entier donné en entrée.
  * \param Un joueur et un entier
 */
-void set_slate(player, int);    
+void set_slate(player, int);
 
 #endif

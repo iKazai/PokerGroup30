@@ -37,7 +37,7 @@ void add_team(board b);
  * \param b : un plateau
  * \return le nombre d'équipes présentes dans un plateau
  */
-int get_number_of_teams(board b);
+int get_number_of_teams();
 
 /**
  * \brief ajoute une joueuse à l'équipe dont l'idée 

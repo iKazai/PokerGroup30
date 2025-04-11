@@ -39,7 +39,7 @@ card get_card_by_id(int card_id){
 }
 
 int get_value(card c){
-    c->value;
+    return c->value;
 }
 
 void set_value(card c , int val){

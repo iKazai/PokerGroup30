@@ -3,29 +3,29 @@
 
 #include "card.h"
 #include "player.h"
+#include <stdbool.h>
 
 /*
 * \brief Génère un pari aléatoire pour un joueur
 * \param Un joueur
 * \return aléatoire un paris : true (Victoire) ou false (Défaite)
 */
-bool paris_aleatoire(player p);
+void paris_aleatoire(player p);
 
 
 
 /*
-* \brief Renvoie la valeur minimale d'une carte dans la main d'un joueur
+* \brief Renvoie la carte avec la valeur minimale dans la main d'un joueur
 * \param Un joueur
-* \return Un entier correspondant à la valeur minimale d'une carte dans la main du joueur
-*/
-int find_min_card_value(player p);
+* \return Une carte correspondant à la carte avec valeur minimale dans la main du joueur
+card find_min_card_value(player p);
 
 /*
-* \brief Renvoie la valeur maximale d'une carte dans la main d'un joueur
+* \brief Renvoie la carte avec la valeur maximal dans la main d'un joueur
 * \param Un joueur
-* \return Un entier correspondant à la valeur maximale d'une carte dans la main du joueur
+* \return Une carte correspondant à la carte avec valeur maximale dans la main du joueur
 */
-int find_max_card_value(player p);
+card find_max_card_value(player p);
 
 /*
 * \brief Implémente le style de jeu agressif

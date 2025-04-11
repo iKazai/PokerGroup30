@@ -66,6 +66,7 @@ card get_card_in_hand(player p, int card_index){
     if (card_index>=0 && card_index<=p->deck_size){
     return p->deck[card_index];
     }
+    return NULL;
 }
 
 
@@ -109,8 +110,9 @@ int get_number_of_played_cards(player p){
 
 card get_played_card(player p, int card_index){
     if (card_index>=0 && card_index<=1){
-    return p->laids[card_index];
+        return p->laids[card_index];
     }
+    return NULL;
 }
 
 

@@ -18,6 +18,7 @@ void paris_aleatoire(player p);
 * \brief Renvoie la carte avec la valeur minimale dans la main d'un joueur
 * \param Un joueur
 * \return Une carte correspondant à la carte avec valeur minimale dans la main du joueur
+*/
 card find_min_card_value(player p);
 
 /*

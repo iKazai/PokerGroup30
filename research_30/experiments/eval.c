@@ -29,8 +29,16 @@ void simulate_games(int n) {
         add_player_to_team(b, 0, p2);
         add_player_to_team(b, 1, p3);
         for (int i = 0; i < n; i++) {
-        
-            create_card()
+            for(int k=0;k<5;k++){
+                for (int i = 0; i < 2; i++) { 
+                    for (int j = 0; j < 2; j++) {
+                        card c = create_card();
+                        set_value(c,rand() % 2 + 1);
+                        add_card_to_hand(b->teams[i][j],c);
+                    }
+                }
+            }
+            
 
             paris_aleatoire(p0);
             paris_aleatoire(p1);
@@ -84,7 +92,7 @@ void simulate_games(int n) {
         }
         
         total_score0 += get_score_of_team(b,0);
-        total_score1 += get_score_of_team(b,0);
+        total_score1 += get_score_of_team(b,1);
         if(total_score0>total_score1){
             count_win+=1;
         }

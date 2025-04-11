@@ -14,5 +14,10 @@ main: $(SRC)main.c $(SRC)article.o
 $(SRC)%.o : $(SRC)%.c
     $(CC) -o $@ -c $< $(CFLAGS)
 
+RESEARCH_PATH = research_30/experiments/production/
+
+research: $(RESEARCH_PATH)miroir.c $(RESEARCH_PATH)miroir.o 
+    $(CC) -o $(SRC)$@ $^ $(CFLAGS)
+
 clean:
     rm -rf $(OBJ)*.o

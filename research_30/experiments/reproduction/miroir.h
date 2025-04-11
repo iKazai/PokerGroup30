@@ -5,6 +5,15 @@
 #include "player.h"
 
 /*
+* \brief Génère un pari aléatoire pour un joueur
+* \param Un joueur
+* \return aléatoire un paris : true (Victoire) ou false (Défaite)
+*/
+bool paris_aleatoire(player p);
+
+
+
+/*
 * \brief Renvoie la valeur minimale d'une carte dans la main d'un joueur
 * \param Un joueur
 * \return Un entier correspondant à la valeur minimale d'une carte dans la main du joueur

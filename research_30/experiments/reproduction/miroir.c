@@ -1,5 +1,11 @@
 #include "miroir.h"
 
+
+bool paris_aleatoire(player p){
+    return rand() % 2 == 0;
+}
+
+
 int find_min_card_value(player p){
     int min_value = 1000;
     for (int i = 0; i < p->deck_size; i++) {

@@ -150,16 +150,16 @@ int get_number_of_out_of_game_cards(board b)
     return count;
 }
 
-card get_out_of_game_card(board b, int index) 
+card get_out_of_game_card(board b, int card_index) 
 {
     int count = get_number_of_out_of_game_cards(b);
-    if (index < 0 || index >= count)
+    if (card_index < 0 || index >= count)
     {
        return NULL; 
     }
     else 
     {
-        return b->c[index];
+        return b->c[card_index];
     }
 }
 

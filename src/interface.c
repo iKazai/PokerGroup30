@@ -1,12 +1,11 @@
-#include "interface.h"
-#include "board.h"
-#include "player.h"
-#include "card.h"
+#include "../include/interface.h"
+#include "../include/board.h"
+#include "../include/player.h"
+#include "../include/card.h"
 #include <stdio.h>
 
 void display_card(card c){
-    printf("ID de la carte : %d\n
-        Valeur de la carte : %d\n", c->id, c->value);
+    printf("ID de la carte : %d\n Valeur de la carte : %d\n", c->id, c->value);
     return;
 }
 

@@ -1,8 +1,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-#include "board.h"
-#include "card.h" 
+#include "../include/board.h"
+#include "../include/card.h" 
 
 board create_board() {
     board b = malloc(sizeof(struct board_base));

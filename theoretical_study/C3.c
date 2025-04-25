@@ -7,7 +7,7 @@ void distrib(int* pioche,int* carte1, int* carte2)
 {
     int index1 = rand() % 6;
     *carte1 = pioche[index1];
-    int index2;
+    int index2 = rand() % 6;
      while (index2 == index1) {
         index2 = rand() % 6;
     };
@@ -49,4 +49,8 @@ double* P_approx_1_n(int n) {
         }
     }
     return t;
+}
+
+int main(){
+    return 0;
 }

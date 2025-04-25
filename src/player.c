@@ -88,6 +88,7 @@ void remove_card_from_hand(player p, card c){
     for (int i =0; i<p->deck_size;i++){
         if(p->deck[i]->id == c->id ){
             tmp = i;
+            break;
         }
     }
     if (tmp == -1) return ;//si la carte n'est pas trouvée
@@ -101,6 +102,7 @@ void remove_card_from_hand(player p, card c){
         p->deck = NULL;
     } else {
         p->deck = realloc(p->deck, p->deck_size * sizeof(card)); //reallouer la memoir car deck_size a changé
+        if (p->deck == NULL) return;
     }
 }
 

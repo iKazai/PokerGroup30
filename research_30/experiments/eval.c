@@ -1,11 +1,5 @@
 // eval.c
-#include <stdio.h>
-#include <time.h>
-#include "miroir.h"
-#include "board.h"
-#include "player.h"
-#include "card.h"
-#include <stdlib.h>
+
 #include "eval.h"
 
 void simulate_games(int n) {

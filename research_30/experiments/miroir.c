@@ -1,4 +1,4 @@
-#include <stdlib.h>
+
 #include "miroir.h"
 
 
@@ -32,8 +32,8 @@ card find_max_card(player p){
 
 
 bool agressive(player p){
-    card a = find_min_card_value(p);
-    card b = find_max_card_value(p);
+    card a = find_min_card(p);
+    card b = find_max_card(p);
     if ((a->value) - 1 >= 5 - (b->value)) {
         set_slate(p,1);
         if(p->deck_size==1){
@@ -42,17 +42,17 @@ bool agressive(player p){
             return true;
         }
         else{
-            card max_card = find_max_card_value(p);
+            card max_card = find_max_card(p);
             play_card(p,max_card);
             remove_card_from_hand(p,max_card);
-            max_card = find_max_card_value(p);
+            max_card = find_max_card(p);
             play_card(p,max_card);
             remove_card_from_hand(p,max_card);
             return true;
         }
     } else {
         set_slate(p,0);
-        card min_card = find_min_card_value(p);
+        card min_card = find_min_card(p);
         play_card(p,min_card);
         remove_card_from_hand(p,min_card);
         return false;

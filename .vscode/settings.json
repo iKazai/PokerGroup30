@@ -5,6 +5,7 @@
         "stdlib.h": "c",
         "player.h": "c",
         "card.h": "c",
-        "interface.h": "c"
+        "interface.h": "c",
+        "miroir.h": "c"
     }
 }

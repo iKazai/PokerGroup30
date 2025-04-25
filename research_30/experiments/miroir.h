@@ -3,7 +3,9 @@
 
 #include "card.h"
 #include "player.h"
+
 #include <stdbool.h>
+#include <stdlib.h>
 
 /** 
 * \brief Génère un pari aléatoire pour un joueur

@@ -54,10 +54,10 @@ $(RESEARCH_BIN): $(RESEARCH_OBJ_FULL) | $(BINDIR)
 	$(CC) $(RESEARCH_OBJ_FULL) -o $@
 
 # Compile les .o nécessaires pour research
-obj/research_%.o: $(RESEARCH_DIR)/%.c | $(OBJDIR)
+obj/%.o: $(RESEARCH_DIR)/%.c | $(OBJDIR)
 	$(CC) $(CFLAGS) -c $< -o $@
-
-obj/research_%.o: src/%.c | $(OBJDIR)
+      
+obj/%.o: src/%.c | $(OBJDIR)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 

@@ -1,6 +1,8 @@
 #include<stdio.h>
 #include<stdlib.h>
 
+int pioche[] = {1,1,2,2,3,3};
+
 void distrib(int* pioche,int* carte1, int* carte2) 
 {
     int index1 = rand() % 6;
@@ -18,7 +20,7 @@ void main_J1(int* pioche,int* carte1, int* carte2)
     printf("J1 reçoit les cartes : %d et %d\n", carte1, carte2);
 }
 
-double P_approx_1(int i,int j, int* pioche, int n) 
+double P_approx_1(int i,int j,int n) 
 {
     int count=0;
     for(int k=0;k<n;k++)
@@ -33,7 +35,7 @@ double P_approx_1(int i,int j, int* pioche, int n)
     return (double)count/n;
 }
 
-double* P_approx_1_n(int* pioche, int n) {
+double* P_approx_1_n(int n) {
     double* t;
     t = malloc(sizeof(double) * 6);
     int index=0;
@@ -42,7 +44,7 @@ double* P_approx_1_n(int* pioche, int n) {
         for(int j=1;j<4;j++)
         {
 
-            t[index] = P_approx_1(i,j,pioche,n);
+            t[index] = P_approx_1(i,j,n);
             index++;
         }
     }

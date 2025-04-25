@@ -1,5 +1,5 @@
-#include "player.h"
-#include "card.h"
+#include "../include/player.h"
+#include "../include/card.h"
 #include <stdlib.h>
 #include <stdbool.h>
 

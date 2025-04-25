@@ -17,7 +17,7 @@ void distrib(int* pioche,int* carte1, int* carte2)
 void main_J1(int* pioche,int* carte1, int* carte2)
 {
     distrib(pioche,carte1, carte2);
-    printf("J1 reçoit les cartes : %d et %d\n", carte1, carte2);
+    printf("J1 reçoit les cartes : %d et %d\n", *carte1, *carte2);
 }
 
 double P_approx_1(int i,int j,int n) 

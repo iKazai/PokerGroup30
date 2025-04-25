@@ -1,7 +1,4 @@
 #include "../include/interface.h"
-#include "../include/board.h"
-#include "../include/player.h"
-#include "../include/card.h"
 #include <stdio.h>
 
 void display_card(card c){

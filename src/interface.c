@@ -14,7 +14,7 @@ void display_board(board b){
         printf("L'équipe %d:\n", b->team_id[i]);
         printf("Score : %d\n", b->score[i]);
         for(int j = 0; j < 2; j++){
-            printf("Le joueur %d:\n", b->teams[i][j]);
+            printf("Le joueur %d:\n", b->teams[i][j]->id);
             for (int k = 0; k < b->teams[i][j]->deck_size; k++){
                 printf("Carte %d : %d \n", k, get_value(b->teams[i][j]->deck[k]));
             }
@@ -25,21 +25,21 @@ void display_board(board b){
 }
 
 int ask_gamble(player p){
-    printf("Combien voulez-vous miser ?\n");
+    printf("Joueur %d : Que voulez-vous parier ?\n", p->id);
     int gamble;
     scanf("%d", &gamble);
     return gamble;
 }
 
 int ask_number_of_played_cards(player p){
-    printf("Combien de cartes voulez-vous poser ?\n");
+    printf("Joueur %d : Combien de cartes voulez-vous poser ?\n", p->id);
     int number;
     scanf("%d", &number);
     return number;
 }
 
 card ask_card(player p){
-    printf("Quelle carte voulez-vous jouer ?\n");
+    printf("Joueur %d : Quelle carte voulez-vous jouer ?\n", p->id);
     int card_index;
     scanf("%d", &card_index);
     return get_card_in_hand(p, card_index);

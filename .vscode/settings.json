@@ -2,6 +2,11 @@
     "files.associations": {
         "board.h": "c",
         "stdlib.h": "c",
+<<<<<<< HEAD
+        "player.h": "c",
+        "card.h": "c"
+=======
         "player.h": "c"
+>>>>>>> 102bb47fe5ccd60e4df0c1b23339c5a9fad4d29d
     }
 }

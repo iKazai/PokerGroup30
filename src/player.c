@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <stdbool.h>
+#include "../include/player.h"
 
 player players[3]; //creation d'un tableau pour stocker les joueurs present sur le plateau 
 int player_count = 0; // nb de joueurs présent

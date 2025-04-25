@@ -1,37 +1,41 @@
-# Compilateur et options
-CC=gcc
-CFLAGS=-Wall -Wextra -std=c99
-LFLAGS=
+# Variables
+CC = gcc
+CFLAGS = -Wall -Wextra -std=c99 -Iinclude
+OBJDIR = obj
+SRCDIR = src
+BINDIR = bin
+TARGET = $(BINDIR)/main
 
-# Dossiers
-SRC_DIR = ./src
-INC_DIR = ./include
-OBJ_DIR = ./obj
-BIN_DIR = ./bin
+# Fichiers sources
+SRC = $(SRCDIR)/board.c \
+      $(SRCDIR)/player.c \
+      $(SRCDIR)/interface.c \
+      $(SRCDIR)/card.c \
+      $(SRCDIR)/main.c
 
-# Fichiers
-SOURCES = $(wildcard $(SRC_DIR)/*.c)
-OBJECTS = $(patsubst $(SRC_DIR)/%.c,$(OBJ_DIR)/%.o,$(SOURCES))
-TARGET = $(BIN_DIR)/my_game
-
-# Dependencies explicites (headers)
-$(OBJ_DIR)/board.o: $(INC_DIR)/board.h $(INC_DIR)/player.h $(INC_DIR)/card.h
-$(OBJ_DIR)/interface.o: $(INC_DIR)/interface.h $(INC_DIR)/board.h $(INC_DIR)/player.h $(INC_DIR)/card.h
-$(OBJ_DIR)/player.o: $(INC_DIR)/player.h $(INC_DIR)/card.h
+# Fichiers objets
+OBJ = $(patsubst $(SRCDIR)/%.c, $(OBJDIR)/%.o, $(SRC))
 
 # Règle par défaut
 all: $(TARGET)
 
-# Édition des liens
-$(TARGET): $(OBJECTS)
-	$(CC) $(LDFLAGS) $^ -o $@
+# Création de l'exécutable
+$(TARGET): $(OBJ) | $(BINDIR)
+	$(CC) $(OBJ) -o $@
 
-# Compilation des objets dans obj/
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
-	$(CC) $(CFLAGS) -MMD -MP -c $< -o $@
+# Compilation des fichiers objets
+$(OBJDIR)/%.o: $(SRCDIR)/%.c | $(OBJDIR)
+	$(CC) $(CFLAGS) -c $< -o $@
+
+# Création des répertoires si besoin
+$(OBJDIR):
+	mkdir -p $(OBJDIR)
+
+$(BINDIR):
+	mkdir -p $(BINDIR)
 
 # Nettoyage
 clean:
-	rm -rf $(OBJ_DIR) $(BIN_DIR)
+	rm -rf $(OBJDIR) $(BINDIR)
 
 .PHONY: all clean

@@ -6,7 +6,7 @@
 
 board create_board() {
     board b = malloc(sizeof(struct board_base));
-
+    if (!b) return NULL;
     b->teams = malloc(2 * sizeof(player*));
     for (int i = 0; i < 2; i++) 
     {
@@ -34,12 +34,26 @@ void free_board(board b)
     }
     free(b->teams);
     free(b->score);
-    free(b->c);
+    if (b->c) {
+        for (int i = 0; b->c[i]; i++) {
+            free_card(b->c[i]);
+        }
+        free(b->c);
+    }
     free(b);
 }
 
 void add_team(board b) {
-     b->teams = malloc(2 * sizeof(player*));
+    if (b->teams) {
+        for (int i = 0; i < 2; i++) {
+            free(b->teams[i]);
+        }
+        free(b->teams);
+    }
+    if (b->score) {
+        free(b->score);
+    }
+    b->teams = malloc(2 * sizeof(player*));
     for (int i = 0; i < 2; i++) 
     {
         b->teams[i] = malloc(2 * sizeof(player));
@@ -180,6 +194,7 @@ void remove_out_of_game_card(board b, card c)
     {
         return;
     }
+    free_card(b->c[index]);
     card* new_cards = malloc(count * sizeof(card));
     int j = 0;
     for (int i = 0; i < count; i++) 

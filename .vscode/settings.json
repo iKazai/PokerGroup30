@@ -1,6 +1,8 @@
 {
     "files.associations": {
         "board.h": "c",
-        "stdlib.h": "c"
+        "stdlib.h": "c",
+        "player.h": "c",
+        "card.h": "c"
     }
 }

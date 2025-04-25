@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-player players[3]; //creation d'un tableau pour stocker les joueurs present sur le plateau 
+player players[4]; //creation d'un tableau pour stocker les joueurs present sur le plateau 
 int player_count = 0; // nb de joueurs présent
 int player_id= 0; // initialisation d'un compteur pour attribuer un id unique
 player create_player(void){
@@ -28,8 +28,20 @@ player create_player(void){
 
 
 void free_player(player p){
-    free(p->deck);
-    free(p->laids);
+    if (p->deck) {
+        for (int i = 0; i < p->deck_size; i++) {
+            free_card(p->deck[i]);
+        }
+        free(p->deck);
+    }
+
+    if (p->laids) {
+        for (int i = 0; i < p->laids_size; i++) {
+            free_card(p->laids[i]);
+        }
+        free(p->laids);
+    }
+
     free(p);
 }
 
@@ -63,7 +75,7 @@ int get_size_of_hand(player p){
 
 
 card get_card_in_hand(player p, int card_index){
-    if (card_index>=0 && card_index<=p->deck_size){
+    if (card_index>=0 && card_index<p->deck_size){
     return p->deck[card_index];
     }
     return NULL;
@@ -80,13 +92,17 @@ void remove_card_from_hand(player p, card c){
         }
     }
     if (tmp == -1) return ;//si la carte n'est pas trouvée
-    
+    free_card(p->deck[tmp]);
     for (int i = tmp; i < p->deck_size-1; i++) { //decaler les cartes après la carte supprimé pour réafecter les indices 
         p->deck[i] = p->deck[i+1];
     }
     p->deck_size--;
-    p->deck = realloc(p->deck,(p->deck_size)*sizeof(card));//reallouer la memoir car deck_size a changé
-    if (p->deck==NULL && p->deck_size>0) return;
+    if (p->deck_size == 0){
+        free(p->deck);
+        p->deck = NULL;
+    } else {
+        p->deck = realloc(p->deck, p->deck_size * sizeof(card)); //reallouer la memoir car deck_size a changé
+    }
 }
 
 

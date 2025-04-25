@@ -3,32 +3,31 @@
 
 
 void paris_aleatoire(player p){
-    int a = rand() % 2 == 0;
-    p->slate = a;
+    p->slate = (rand() % 2) == 0;
     return;
 }
 
 
-card find_min_card_value(player p){
-    card c;
+card find_min_card(player p){
     if (p->deck_size == 0) return NULL; 
-    for (int i = 0; i <p->deck_size - 1; i++) {
-        if (p->deck[i]->value < p->deck[i+1]->value) {
-            c = p->deck[i];
+    card minimum = p->deck[0];
+    for (int i = 1; i < p->deck_size - 1; i++) {
+        if (p->deck[i]->value < minimum->value) {
+            minimum = p->deck[i];
         }
     }
-    return c;
+    return minimum;
 }
 
-card find_max_card_value(player p){
-    card c;
-    if (p->deck_size == 0) return NULL;   
-    for (int i = 0; i < p->deck_size - 1; i++) {
-        if (p->deck[i]->value > p->deck[i+1]->value) {
-           c = p->deck[i];
+card find_max_card(player p){
+    if (p->deck_size == 0) return NULL; 
+    card maximum = p->deck[0];
+    for (int i = 1; i < p->deck_size - 1; i++) {
+        if (p->deck[i]->value > maximum->value) {
+            maximum = p->deck[i];
         }
     }
-    return c;
+    return maximum;
 }
 
 
@@ -40,23 +39,22 @@ bool agressive(player p){
         if(p->deck_size==1){
             play_card(p,p->deck[0]);
             remove_card_from_hand(p,p->deck[0]);
-
             return true;
         }
-        card max_card = find_max_card_value(p);
-        play_card(p,max_card);
-        remove_card_from_hand(p,max_card);
-        max_card = find_max_card_value(p);
-        play_card(p,max_card);
-        remove_card_from_hand(p,max_card);
-        
-        return true;
+        else{
+            card max_card = find_max_card_value(p);
+            play_card(p,max_card);
+            remove_card_from_hand(p,max_card);
+            max_card = find_max_card_value(p);
+            play_card(p,max_card);
+            remove_card_from_hand(p,max_card);
+            return true;
+        }
     } else {
         set_slate(p,0);
         card min_card = find_min_card_value(p);
         play_card(p,min_card);
         remove_card_from_hand(p,min_card);
-
         return false;
     }
 }

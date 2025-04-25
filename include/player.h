@@ -2,6 +2,7 @@
 #define PLAYER_H
 
 #include "card.h" 
+#include "player.h"
 #include <stdbool.h>
 
 struct player_base{

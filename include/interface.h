@@ -2,6 +2,7 @@
 #define INTERFACE_H
 #include "board.h"
 #include "player.h"
+#include "card.h"
 #include <stdio.h>
 
 /**

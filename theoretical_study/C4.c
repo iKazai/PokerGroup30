@@ -8,7 +8,7 @@ int export_approx_1(int n){
         return -1;
     }
 
-    for (int i = 0; i < 9; i++) {
+    for (int i = 0; i < 6; i++) {
         fprintf(file, "%f\n", approx[i]);
     }
 

@@ -1,4 +1,4 @@
-#include <C:\Users\crisd\OneDrive\PokerGroup30\theoretical_study\C3.c>
+#include "C:\Users\crisd\OneDrive\PokerGroup30\theoretical_study\C3.c"
 
 int export_approx_1(int n){
     double* approx = P_approx_1_n(n);

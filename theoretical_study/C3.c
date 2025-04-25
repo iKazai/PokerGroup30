@@ -51,6 +51,3 @@ double* P_approx_1_n(int n) {
     return t;
 }
 
-int main(){
-    return 0;
-}

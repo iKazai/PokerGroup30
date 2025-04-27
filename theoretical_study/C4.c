@@ -1,10 +1,7 @@
 #include "C3.c"
-<<<<<<< HEAD
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdlib.h>
-=======
->>>>>>> 9d8c42cb9ae32f4f7a7e71895b927af4ba340913
 
 int export_approx_1(int n) {
     double* approx = P_approx_1_n(n); 

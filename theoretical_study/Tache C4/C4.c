@@ -1,9 +1,13 @@
 #include "C3.c"
 #include <stdio.h>
 #include <stdlib.h>
+<<<<<<< HEAD:theoretical_study/Tache C4/C4.c
 
 int export_approx_1(int n);
 
+=======
+#include <stdlib.h>
+>>>>>>> b4567dc50abb59b5f5a38cd6d7a67a9617bbe3dc:theoretical_study/C4.c
 
 int export_approx_1(int n) {
     double* approx = P_approx_1_n(n); 

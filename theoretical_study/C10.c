@@ -1,4 +1,4 @@
-#include "TacheC3.h"
+#include "C9.c"
 #include <stdlib.h>
 
 double P_approx_2_1_alter(int i, int j, int n){
@@ -14,7 +14,7 @@ double P_approx_2_1_alter(int i, int j, int n){
 }
 
 double* P_approx_2_alter(int n){
-    double* res = (double*)malloc(double * 9);
+    double* res = (double*)malloc(sizeof(double) * 9);
     int index = 0;
     for (int k = 1; k < 4; k++)
     {

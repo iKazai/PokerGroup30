@@ -1,6 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
-#include "C3.c"
+#include "C4.c"
 
 
 int* retirer_cartes_J1(int* pioche_init, int taille, int i, int j) 

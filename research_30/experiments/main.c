@@ -13,5 +13,6 @@ int main() {
     srand(time(0));
     int n =rand() % 18+3;
     simulate_games(n);
+    printf("test");
     return -1;
 }

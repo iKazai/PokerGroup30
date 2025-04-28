@@ -24,7 +24,7 @@ void simulate_games(int n) {
         add_player_to_team(b, 0, p2);
         add_player_to_team(b, 1, p3);
         for (int o = 0; o < n; o++) {// n tours 
-            for(int k=0;k<4;k++){ // 4 joueurs
+            for(int k=0;k<2;k++){ // 4 joueurs
                 for (int l = 0; l < 2; l++) { //l equipes
                     for (int j = 0; j < 2; j++) { //joueur j de l'equipe l
                         card c = create_card();
@@ -37,7 +37,6 @@ void simulate_games(int n) {
                     }
                 }
             }
-            
 
             paris_aleatoire(p0);
             paris_aleatoire(p1);
@@ -45,9 +44,10 @@ void simulate_games(int n) {
             paris_aleatoire(p3);
 
             int a = get_slate(p0);
-
+            for(int m=0;m<p0->deck_size;m++){
+            //printf("%d", p0->deck[m])
+            }
             set_slate(p2,a);
-
             agressive(p0);
             agressive(p1);
             agressive(p2);

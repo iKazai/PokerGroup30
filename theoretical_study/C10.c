@@ -7,7 +7,7 @@ double P_approx_2_1_alter(int i, int j, int n){
     {
         for (int l = 1; l < 4; l++)
         {
-            res += P_approx_1(k,l,n) * P_approx_2_1(k,l,i,j,n);
+            res += P_approx_1(k,l,n) * P_approx_2_1_main(k,l,i,j,n);
         }
     }
     return res;

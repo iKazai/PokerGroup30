@@ -49,4 +49,12 @@ double* P_approx_1_n(int n) {
         }
     }
     return t;
+<<<<<<< HEAD
 }
+
+//int main(){
+//    return 0;
+//}
+=======
+}
+>>>>>>> b4567dc50abb59b5f5a38cd6d7a67a9617bbe3dc

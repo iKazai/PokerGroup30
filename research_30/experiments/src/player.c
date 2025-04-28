@@ -112,13 +112,13 @@ void play_card(player p, card c){
     if (p==NULL || c==NULL) return ;
     if (p->laids_size>=2) return; // 2 cartes maximum sur la table par le joueur
 
-    p->laids = realloc(p->laids,(p->laids_size+1)*sizeof(card)); //reallouer la memoire car laids_size a changé
-    if (p->laids == NULL) return;
-
+    card* new_laids = realloc(p->laids, (p->laids_size + 1) * sizeof(card));
+    if (new_laids == NULL) return;
+    
+    p->laids = new_laids;
     p->laids[p->laids_size] = c;
     p->laids_size++;
 }
-
 
 int get_number_of_played_cards(player p){
     return p->laids_size;

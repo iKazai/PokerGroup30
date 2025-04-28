@@ -2,10 +2,11 @@
 
 #include "eval.h"
 
+
 void simulate_games(int n) {
     clock_t start = clock();
     int count_win = 0;
-    for (int i=0;i<20;i++){
+    for (int i=0;i<20;i++){ //20 parties
         int total_score0 = 0;
         int total_score1 = 0;
         
@@ -22,13 +23,17 @@ void simulate_games(int n) {
         add_player_to_team(b, 1, p1);
         add_player_to_team(b, 0, p2);
         add_player_to_team(b, 1, p3);
-        for (int i = 0; i < n; i++) {
-            for(int k=0;k<5;k++){
-                for (int i = 0; i < 2; i++) { 
-                    for (int j = 0; j < 2; j++) {
+        for (int o = 0; o < n; o++) {// n tours 
+            for(int k=0;k<4;k++){ // 4 joueurs
+                for (int l = 0; l < 2; l++) { //l equipes
+                    for (int j = 0; j < 2; j++) { //joueur j de l'equipe l
                         card c = create_card();
+                        if (!c) {
+                            fprintf(stderr, "Erreur: Impossible de créer une carte\n");
+                            exit(EXIT_FAILURE);
+                        }
                         set_value(c,rand() % 2 + 1);
-                        add_card_to_hand(b->teams[i][j],c);
+                        add_card_to_hand(b->teams[l][j],c);
                     }
                 }
             }
@@ -80,9 +85,17 @@ void simulate_games(int n) {
                     }
                 }  
             }
-
-
-
+            //free toutes les cartes sur le plateau et en main
+            for (int l = 0; l < 2; l++) { //l equipes
+                for (int j = 0; j < 2; j++) { //joueur j de l'equipe l
+                    for (int k = 0; k < b->teams[l][j]->deck_size; k++) {
+                        free_card(b->teams[l][j]->deck[k]);
+                    }
+                    for (int k = 0; k < b->teams[l][j]->laids_size; k++) {
+                    free_card(b->teams[l][j]->laids[k]);
+                    }
+            } 
+            }
         }
         
         total_score0 += get_score_of_team(b,0);

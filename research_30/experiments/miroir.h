@@ -1,8 +1,7 @@
 #ifndef MIROIR_H
 #define MIROIR_H
 
-#include "card.h"
-#include "player.h"
+#include "board.h"
 
 #include <stdbool.h>
 #include <stdlib.h>

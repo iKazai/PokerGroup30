@@ -7,8 +7,6 @@
 
 #include "miroir.h"
 #include "board.h"
-#include "player.h"
-#include "card.h"
 
 /**
  * \brief Simule 20 jeux à n tours

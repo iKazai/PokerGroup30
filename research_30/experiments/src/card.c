@@ -6,18 +6,11 @@ int card_count = 0; // nb de carte présent
 int card_id = 0; // initialisation d'un compteur pour attribuer un id unique
 
 card create_card(){
-<<<<<<< HEAD
     if (card_count>=20){
     printf("erreur");
     return NULL;
     }
     
-=======
-    if (card_count>=20) return{
-        perror("[create_card] : Maximum number of cards reached");
-        return NULL;
-    }    
->>>>>>> 742cd782bb5b9014ec4bff1e6addc9bbd027318c
     card new_card = malloc(sizeof(struct card_base));
     if (!new_card) return NULL;
 
@@ -33,6 +26,7 @@ card create_card(){
 
 void free_card(card c){
     free(c);
+    card_count--;
 }
 
 int get_card_id(card c){

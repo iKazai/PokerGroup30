@@ -44,9 +44,7 @@ void simulate_games(int n) {
             paris_aleatoire(p3);
 
             int a = get_slate(p0);
-            for(int m=0;m<p0->deck_size;m++){
-            //printf("%d", p0->deck[m])
-            }
+
             set_slate(p2,a);
             agressive(p0);
             agressive(p1);

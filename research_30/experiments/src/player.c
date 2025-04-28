@@ -118,7 +118,6 @@ void play_card(player p, card c){
     p->laids = new_laids;
     p->laids[p->laids_size] = c;
     p->laids_size++;
-    p->deck_size--;
 }
 
 int get_number_of_played_cards(player p){

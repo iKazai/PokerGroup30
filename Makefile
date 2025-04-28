@@ -1,23 +1,45 @@
-CC=gcc
-CFLAGS=-Wall -Wextra -std=c99
-LFLAGS=
-INC=-I include/
-SRC=src/
-EXEC=main
-OBJ=obj/
+# Variables
+CC = gcc
+CFLAGS = -Wall -Wextra -std=c99 -Iinclude
+OBJDIR = obj
+SRCDIR = src
+BINDIR = bin
+TARGET = $(BINDIR)/main
 
-all: $(EXEC)
+# Fichiers sources
+SRC = $(SRCDIR)/board.c \
+      $(SRCDIR)/player.c \
+      $(SRCDIR)/interface.c \
+      $(SRCDIR)/card.c \
+      $(SRCDIR)/main.c
 
-main: $(SRC)main.c $(SRC)article.o 
-    $(CC) -o $(SRC)$@ $^ $(CFLAGS) 
+# Fichiers objets
+OBJ = $(patsubst $(SRCDIR)/%.c, $(OBJDIR)/%.o, $(SRC))
 
-$(SRC)%.o : $(SRC)%.c
-    $(CC) -o $@ -c $< $(CFLAGS)
+# Règle par défaut
+all: $(TARGET)
 
-RESEARCH_PATH = research_30/experiments/production/
+# Création de l'exécutable
+$(TARGET): $(OBJ) | $(BINDIR)
+	$(CC) $(OBJ) -o $@
 
-research: $(RESEARCH_PATH)miroir.c $(RESEARCH_PATH)miroir.o 
-    $(CC) -o $(SRC)$@ $^ $(CFLAGS)
+# Compilation des fichiers objets
+$(OBJDIR)/%.o: $(SRCDIR)/%.c | $(OBJDIR)
+	$(CC) $(CFLAGS) -c $< -o $@
 
+# Création des répertoires si besoin
+$(OBJDIR):
+	mkdir -p $(OBJDIR)
+
+$(BINDIR):
+	mkdir -p $(BINDIR)
+
+
+
+
+
+# Nettoyage
 clean:
-    rm -rf $(OBJ)*.o
+	rm -rf $(OBJDIR) $(BINDIR)
+
+.PHONY: all clean

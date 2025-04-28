@@ -1,6 +1,11 @@
 {
     "files.associations": {
+        "*.embeddedhtml": "html",
         "board.h": "c",
-        "stdlib.h": "c"
+        "stdlib.h": "c",
+        "player.h": "c",
+        "card.h": "c",
+        "interface.h": "c",
+        "miroir.h": "c"
     }
 }

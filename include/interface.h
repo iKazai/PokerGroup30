@@ -2,6 +2,7 @@
 #define INTERFACE_H
 #include "board.h"
 #include "player.h"
+#include "card.h"
 #include <stdio.h>
 
 /**
@@ -30,6 +31,13 @@ int ask_number_of_cards(player);
  * \return card La carte choisie par la joueuse.
  */
 card ask_card(player);
+
+/**
+ * \brief Demande au joueur combien de cartes il souhaite poser sur la table et renvoie ce nombre.
+ * \param player Le joueur en cours.
+ * \return Renvoie le nombre de cartes posés.
+*/
+int ask_number_of_played_cards(player);
 
 /**
  * \brief Affiche le message de fin de jeu avec les informations associées.

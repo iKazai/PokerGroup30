@@ -6,8 +6,10 @@ int card_count = 0; // nb de carte présent
 int card_id = 0; // initialisation d'un compteur pour attribuer un id unique
 
 card create_card(){
-    if (card_count>=20) return NULL;
-    
+    if (card_count>=20) return{
+        perror("[create_card] : Maximum number of cards reached");
+        return NULL;
+    }    
     card new_card = malloc(sizeof(struct card_base));
     if (!new_card) return NULL;
 

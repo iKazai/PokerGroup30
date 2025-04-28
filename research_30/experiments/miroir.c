@@ -9,7 +9,14 @@ void paris_aleatoire(player p){
 
 
 card find_min_card(player p){
-    if (p->deck_size == 0 || !p) return NULL; 
+    if (p->deck_size == 0){
+        perror("[find_min_card] : No cards in hand");
+        return NULL;
+    }
+    if (!p) {
+        perror("[find_min_card] : Player is NULL");
+        return NULL;
+    }
     card minimum = p->deck[0];
     for (int i = 1; i < p->deck_size; i++) {
         if (p->deck[i]->value < minimum->value) {
@@ -20,7 +27,14 @@ card find_min_card(player p){
 }
 
 card find_max_card(player p){
-    if (p->deck_size == 0 || !p) return NULL; 
+    if (p->deck_size == 0){
+        perror("[find_max_card] : No cards in hand");
+        return NULL;
+    }
+    if (!p) {
+        perror("[find_max_card] : Player is NULL");
+        return NULL;
+    }
     card maximum = p->deck[0];
     for (int i = 1; i < p->deck_size; i++) {
         if (p->deck[i]->value > maximum->value) {

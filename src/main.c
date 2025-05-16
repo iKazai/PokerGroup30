@@ -18,6 +18,8 @@ int main() {
         int team_id = i % 2; // Alternance des équipes
         add_player_to_team(b, team_id, p);
     }
+    //E.3 : distribuer 20 jetons à chaque joueur
+    distribute_initial_tokens(b);
 
     // Création et distribution des cartes (20 cartes, 5 par joueur)
     for (int i = 0; i < 20; i++) {
@@ -31,7 +33,8 @@ int main() {
     // Boucle de jeu (3 tours)
     for (int tour = 1; tour <= 3; tour++) {
         display_message("--- Début du tour ---");
-
+        //E.3 : afficher les jetons de chaque joueur */
+        display_tokens(b);
         // Phase de paris
         for (int i = 0; i < 4; i++) {
             player p = get_player(b, i / 2, i % 2);
@@ -42,7 +45,7 @@ int main() {
         // Phase de placement des cartes
         for (int i = 0; i < 4; i++) {
             player p = get_player(b, i / 2, i % 2);
-            int nb_cards = ask_number_of_cards(p); // Demande combien de cartes poser (1 ou 2)
+            int nb_cards = ask_number_of_played_cards(p); // Demande combien de cartes poser (1 ou 2)
             for (int j = 0; j < nb_cards; j++) {
                 card c = ask_card(p); // Demande quelle carte poser
                 play_card(p, c); // Pose la carte sur la table
@@ -78,15 +81,15 @@ int main() {
         for (int i = 0; i < 4; i++) {
             player p = get_player(b, i / 2, i % 2);
             int gamble = get_slate(p);
+            int w = get_current_bet(p); //E3 : pari actuel
             if (gamble == 1) { // Pari "Victoire"
                 if (winning_team == i / 2) { // Si l'équipe du joueur a gagné
-                    set_score_of_team(b, i / 2, get_score_of_team(b, i / 2) + 1);
-                }
-            } else { // Pari "Défaite"
-                if (winning_team != -1 && winning_team != i / 2) { // Si l'équipe du joueur a perdu
-                    set_score_of_team(b, i / 2, get_score_of_team(b, i / 2) + 1);
+                    add_tokens(p, 2 * w); // Récupère la mise + équivalent
+                } else if (gamble == 0 && winning_team != i / 2) { // Pari "Défaite" 
+                    add_tokens(p, 2 * w); // Récupère la mise + équivalent
                 }
             }
+            set_current_bet(p, 0); // E3 : réinitialiser la mise pour le prochain tour
         }
 
         // Mise de côté des cartes jouées
@@ -105,6 +108,10 @@ int main() {
 
     // Fin du jeu
     display_message("--- Fin du jeu ---");
+    
+    //E.3 : Affichage des scores finaux basés sur les jetons */
+    int score_team1 = get_score_of_team(b, 0);
+    int score_team2 = get_score_of_team(b, 1);
 
     // Affichage des scores finaux
     int score_team1 = get_score_of_team(b, 0);
@@ -124,3 +131,4 @@ int main() {
 
     return 0;
 }
+

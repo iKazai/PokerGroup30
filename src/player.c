@@ -1,9 +1,8 @@
-#include "player.h"
-#include "card.h"
 #include <stdlib.h>
 #include <stdbool.h>
+#include "../include/player.h"
 
-player players[3]; //creation d'un tableau pour stocker les joueurs present sur le plateau 
+player players[4]; //creation d'un tableau pour stocker les joueurs present sur le plateau 
 int player_count = 0; // nb de joueurs présent
 int player_id= 0; // initialisation d'un compteur pour attribuer un id unique
 player create_player(void){
@@ -19,6 +18,8 @@ player create_player(void){
     new_player->id = player_id;
     player_id++;
     new_player->team_id = -1;
+    new_player->tokens=0; // E.3 : initialisation du nombre de jetons
+    new_player->current_bet = 0; // E.3 : initialisation de la mise actuelle de jeton 
 
     players[player_count]=new_player;
     
@@ -26,10 +27,21 @@ player create_player(void){
     return new_player;
 }
 
-
 void free_player(player p){
-    free(p->deck);
-    free(p->laids);
+    if (p->deck) {
+        for (int i = 0; i < p->deck_size; i++) {
+            free_card(p->deck[i]);
+        }
+        free(p->deck);
+    }
+
+    if (p->laids) {
+        for (int i = 0; i < p->laids_size; i++) {
+            free_card(p->laids[i]);
+        }
+        free(p->laids);
+    }
+
     free(p);
 }
 
@@ -63,9 +75,10 @@ int get_size_of_hand(player p){
 
 
 card get_card_in_hand(player p, int card_index){
-    if (card_index>=0 && card_index<=p->deck_size){
+    if (card_index>=0 && card_index<p->deck_size){
     return p->deck[card_index];
     }
+    return NULL;
 }
 
 
@@ -76,16 +89,22 @@ void remove_card_from_hand(player p, card c){
     for (int i =0; i<p->deck_size;i++){
         if(p->deck[i]->id == c->id ){
             tmp = i;
+            break;
         }
     }
     if (tmp == -1) return ;//si la carte n'est pas trouvée
-    
+    free_card(p->deck[tmp]);
     for (int i = tmp; i < p->deck_size-1; i++) { //decaler les cartes après la carte supprimé pour réafecter les indices 
         p->deck[i] = p->deck[i+1];
     }
     p->deck_size--;
-    p->deck = realloc(p->deck,(p->deck_size)*sizeof(card));//reallouer la memoir car deck_size a changé
-    if (p->deck==NULL && p->deck_size>0) return;
+    if (p->deck_size == 0){
+        free(p->deck);
+        p->deck = NULL;
+    } else {
+        p->deck = realloc(p->deck, p->deck_size * sizeof(card)); //reallouer la memoir car deck_size a changé
+        if (p->deck == NULL) return;
+    }
 }
 
 
@@ -94,13 +113,13 @@ void play_card(player p, card c){
     if (p==NULL || c==NULL) return ;
     if (p->laids_size>=2) return; // 2 cartes maximum sur la table par le joueur
 
-    p->laids = realloc(p->laids,(p->laids_size+1)*sizeof(card)); //reallouer la memoire car laids_size a changé
-    if (p->laids == NULL) return;
-
+    card* new_laids = realloc(p->laids, (p->laids_size + 1) * sizeof(card));
+    if (new_laids == NULL) return;
+    
+    p->laids = new_laids;
     p->laids[p->laids_size] = c;
     p->laids_size++;
 }
-
 
 int get_number_of_played_cards(player p){
     return p->laids_size;
@@ -109,8 +128,9 @@ int get_number_of_played_cards(player p){
 
 card get_played_card(player p, int card_index){
     if (card_index>=0 && card_index<=1){
-    return p->laids[card_index];
+        return p->laids[card_index];
     }
+    return NULL;
 }
 
 
@@ -151,5 +171,41 @@ void set_slate(player p, int bet){
     } 
     else{
         p->slate = false; // en supposant que 0 représente Défaite
+    }
+}
+
+//E.3 : récupère le nombre total de jetons du joueur
+int get_tokens(player p) {
+    return p->tokens;
+}
+//E.3 : définit nombre total de jetons du joueur
+void set_tokens(player p, int tokens) {
+    if (p && tokens >= 0) {
+        p->tokens = tokens;
+    }
+}
+
+//E.3 : ajoute des jetons au joueur 
+void add_tokens(player p, int tokens) {
+    if (p && tokens >= 0) {
+        p->tokens += tokens;
+    }
+}
+
+//E.3 retire des jetons du total du joueur
+void remove_tokens(player p, int tokens) {
+    if (p && tokens >= 0 && p->tokens >= tokens) {
+        p->tokens -= tokens;
+    }
+}
+//E.3 recupere le nombre de jeton misés
+int get_current_bet(player p) {
+    return p->current_bet;
+}
+
+//E.3 définit le nombre de jeton misés
+void set_current_bet(player p, int tokens) {
+    if (p && tokens >= 0) {
+        p->current_bet = tokens;
     }
 }

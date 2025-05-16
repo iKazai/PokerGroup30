@@ -59,7 +59,7 @@ void simulate_games(int n) {
                 }
             }
             for (int j=0; j<get_number_of_players_in_team(b,1);j++){
-                for (int i=0; i<b->teams[0][j]->laids_size;i++){
+                for (int i=0; i<b->teams[1][j]->laids_size;i++){
                     val1 += get_value(b->teams[1][j]->laids[i]);
                 }
             }

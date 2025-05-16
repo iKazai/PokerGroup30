@@ -44,3 +44,9 @@ int get_value(card c){
 void set_value(card c , int val){
     c->value=val;
 }
+
+void free_special_card(special_card sc){
+    free_card(&(sc->c));
+    free(sc);
+    return;
+}

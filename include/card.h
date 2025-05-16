@@ -17,6 +17,14 @@ struct card_base {
     int value;
 };
 
+struct special_card_base {
+    struct card_base c;
+    char* name; 
+    char* desc;
+};
+
+typedef struct special_card_base* special_card;
+
 /**
  * \brief Crée une nouvelle carte sans valeur initiale
  * \ensures Un identifiant unique lui est attribué.
@@ -57,5 +65,13 @@ int get_value(card);
  * \param int La nouvelle valeur de la carte.
  */
 void set_value(card , int);
+
+/**
+ * \brief Libère une carte spéciale.
+ * \param sc La carte qu'on veut libérer.
+ * \return void
+ * \ensures La mémoire est libérée 
+ */
+void free_special_card(special_card sc);
 
 #endif

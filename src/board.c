@@ -56,28 +56,19 @@ void free_board(board b)
 }
 
 void add_team(board b) {
-    if (b->teams) {
-        for (int i = 0; i < 2; i++) {
-            free(b->teams[i]);
-        }
-        free(b->teams);
-    }
-    if (b->score) {
-        free(b->score);
-    }
-    for(int i = 0; i < 8; i++){
-        free_card(b->c[i]);
-    }
-    free(b->c);
+    if (!b) return;
+
+    // NE PAS libérer les joueurs (et donc leurs cartes), car ils viennent juste d’être créés
+
+    // Réinitialisation simple de la structure
     b->teams = malloc(2 * sizeof(player*));
-    for (int i = 0; i < 2; i++) 
-    {
+    for (int i = 0; i < 2; i++) {
         b->teams[i] = malloc(2 * sizeof(player));
         for (int j = 0; j < 2; j++) {
             b->teams[i][j] = NULL;
         }
-        b->team_id[i] = i;
     }
+
     b->score = malloc(2 * sizeof(int));
     b->score[0] = 0;
     b->score[1] = 0;

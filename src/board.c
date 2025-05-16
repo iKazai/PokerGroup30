@@ -6,20 +6,33 @@
 board create_board() {
     board b = malloc(sizeof(struct board_base));
     if (!b) return NULL;
+
     b->teams = malloc(2 * sizeof(player*));
-    for (int i = 0; i < 2; i++) 
-    {
-        b->teams[i] = malloc(2 * sizeof(player));
+    if (!b->teams) {
+        free(b);
+        return NULL;
     }
 
-    b->team_id[0] = 0;
-    b->team_id[1] = 1;
+    for (int i = 0; i < 2; i++) {
+        b->teams[i] = malloc(2 * sizeof(player));
+        if (!b->teams[i]) {
+            for (int j = 0; j < i; j++) free(b->teams[j]);
+            free(b->teams);
+            free(b);
+            return NULL;
+        }
+    }
 
     b->score = malloc(2 * sizeof(int));
-    for (int i = 0; i < 2; i++) 
-    {
-        b->score[i] = 0;
+    if (!b->score) {
+        for (int i = 0; i < 2; i++) free(b->teams[i]);
+        free(b->teams);
+        free(b);
+        return NULL;
     }
+
+    b->score[0] = 0;
+    b->score[1] = 0;
     b->c = NULL;
 
     return b;

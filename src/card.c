@@ -1,11 +1,14 @@
 #include "card.h"
 
-card cards[19]; //creation d'un tableau pour stocker les cartes presente sur le plateau 
+card cards[20]; //creation d'un tableau pour stocker les cartes presente sur le plateau 
 int card_count = 0; // nb de carte présent
 int card_id = 0; // initialisation d'un compteur pour attribuer un id unique
 
 card create_card(){
-    if (card_count>=20) return NULL;
+    if (card_count>=20){
+    printf("erreur");
+    return NULL;
+    }
     
     card new_card = malloc(sizeof(struct card_base));
     if (!new_card) return NULL;
@@ -18,6 +21,19 @@ card create_card(){
     
     card_count++;
     return new_card;
+}
+
+void free_card(card c){
+    for (int i = 0; i < card_count; i++) {
+        if (cards[i] == c) {
+            cards[i] = cards[card_count - 1];
+            cards[card_count - 1] = NULL;
+            card_count--;
+            break;
+        }
+    }
+    free(c);
+    card_count--;
 }
 
 int get_card_id(card c){
@@ -38,7 +54,7 @@ int get_value(card c){
 }
 
 void set_value(card c , int val){
-    c->value = val;
+    c->value=val;
 }
 
 

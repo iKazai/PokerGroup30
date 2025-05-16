@@ -1,7 +1,7 @@
 #include "../include/card.h"
 #include <stdlib.h>
 
-card cards[19]; //creation d'un tableau pour stocker les cartes presente sur le plateau 
+card cards[20]; //creation d'un tableau pour stocker les cartes presente sur le plateau 
 int card_count = 0; // nb de carte présent
 int card_id = 0; // initialisation d'un compteur pour attribuer un id unique
 
@@ -35,6 +35,7 @@ void free_card(card c){
     free(c);
     printf("apres\n");
     card_count--;
+    printf("\n\n--------------NEW %d\n", card_count);
 }
 
 int get_card_id(card c){

@@ -15,6 +15,7 @@ player create_player(void){
     new_player->deck = (card*)calloc(4, sizeof(card));
     new_player->deck_size = 0;
     new_player->laids = (card*)calloc(2, sizeof(card));
+    new_player->laids_size = 0;
     new_player->slate = false;
     new_player->id = player_id;
     player_id++;

@@ -43,4 +43,6 @@ void display_end_game(board);
  */
 void display_message(char*);
 
+void display_tokens(board b);
+
 #endif

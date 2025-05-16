@@ -124,5 +124,7 @@ void remove_out_of_game_card(board b, card c);
  */
 void apply_special_effect(board b, card c);
 
+void distribute_initial_tokens(board b);
+
 
 #endif

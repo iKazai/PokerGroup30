@@ -56,31 +56,40 @@ void free_board(board b)
 }
 
 void add_team(board b) {
+    if (!b) return;
+
     if (b->teams) {
         for (int i = 0; i < 2; i++) {
-            free(b->teams[i]);
+            if (b->teams[i]) {
+                free(b->teams[i]);
+            }
         }
         free(b->teams);
     }
+
+    b->teams = malloc(2 * sizeof(player*));
+    if (!b->teams) return;
+
+    for (int i = 0; i < 2; i++) {
+        b->teams[i] = malloc(2 * sizeof(player));
+        if (!b->teams[i]) {
+            for (int j = 0; j < i; j++) free(b->teams[j]);
+            free(b->teams);
+            b->teams = NULL;
+            return;
+        }
+    }
+
     if (b->score) {
         free(b->score);
     }
-    for(int i = 0; i < 8; i++){
-        free_card(b->c[i]);
-    }
-    free(b->c);
-    b->teams = malloc(2 * sizeof(player*));
-    for (int i = 0; i < 2; i++) 
-    {
-        b->teams[i] = malloc(2 * sizeof(player));
-        for (int j = 0; j < 2; j++) {
-            b->teams[i][j] = NULL;
-        }
-        b->team_id[i] = i;
-    }
+
     b->score = malloc(2 * sizeof(int));
-    b->score[0] = 0;
-    b->score[1] = 0;
+    if (!b->score) return;
+
+    for (int i = 0; i < 2; i++) {
+        b->score[i] = 0;
+    }
 }
 
 void add_player_to_team(board b, int team_id, player p) 

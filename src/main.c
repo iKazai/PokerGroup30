@@ -1,8 +1,5 @@
 #include <stdlib.h>
-#include "board.h"
-#include "card.h"
-#include "player.h"
-#include "interface.h"
+#include "../include/interface.h"
 
 int main() {
     // Initialisation du plateau

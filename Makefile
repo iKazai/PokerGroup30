@@ -1,6 +1,6 @@
 # Variables
 CC = gcc
-CFLAGS = -Wall -Wextra -std=c99 -Iinclude
+CFLAGS = -g -Wall -Wextra -std=c99 -Iinclude
 OBJDIR = obj
 SRCDIR = src
 BINDIR = bin
@@ -35,6 +35,21 @@ $(BINDIR):
 	mkdir -p $(BINDIR)
 
 
+SEARCH_DIR = research_30/experiments
+# Fichiers sources
+SEARCH_SRC = $(SEARCH_DIR)/eval.c \
+      $(SEARCH_DIR)/miroir.c \
+      $(SEARCH_DIR)/main.c
+
+SEARCH_TARGET = research_30/experiments/test_eval
+SEARCH_OBJ = $(patsubst $(SEARCH_DIR)/%.c, $(SEARCH_DIR)/%.o, $(SEARCH_SRC))
+
+research_30: $(SEARCH_TARGET)
+
+$(SEARCH_DIR)/%.o: $(SEARCH_DIR)/%.c
+
+$(SEARCH_TARGET): $(SEARCH_OBJ) $(OBJDIR)/board.o $(OBJDIR)/player.o $(OBJDIR)/card.o 
+	$(CC) $^ -o $@
 
 
 

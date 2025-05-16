@@ -6,6 +6,8 @@
         "player.h": "c",
         "card.h": "c",
         "interface.h": "c",
-        "miroir.h": "c"
+        "miroir.h": "c",
+        "eval.h": "c",
+        "stdio.h": "c"
     }
 }

@@ -52,6 +52,10 @@ void add_team(board b) {
     if (b->score) {
         free(b->score);
     }
+    for(int i = 0; i < 8; i++){
+        free_card(b->c[i]);
+    }
+    free(b->c);
     b->teams = malloc(2 * sizeof(player*));
     for (int i = 0; i < 2; i++) 
     {

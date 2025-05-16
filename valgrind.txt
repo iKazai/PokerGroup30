@@ -148,3 +148,153 @@ avant c 0x4a63840
 apres
 b->teams[l][j]->laids[k] 0x4a63ac0 b->teams[l][j]->laids 0x4a64500 b->teams[l][j] 0x4a615b0 j: 1 k 1 l 1 teams[l][j]->laids_size 2
 -------TEst--------
+----------TEST-----------
+----------TEST-----------
+----------TEST-----------
+----------TEST-----------
+----------TEST-----------
+----------TEST-----------
+----------TEST-----------
+----------TEST-----------
+////////////value 1
+
+////////////value 1
+
+avant c 0x4a637a0
+apres
+////////////value 2
+
+////////////value 2
+
+avant c 0x4a63660
+apres
+////////////value 1
+
+////////////value 1
+
+avant c 0x4a63840
+apres
+////////////value 1
+
+////////////value 1
+
+avant c 0x4a63700
+apres
+avant c 0x4a614e0
+apres
+b->teams[l][j]->laids[k] 0x4a637a0 b->teams[l][j]->laids 0x4a63a20 b->teams[l][j] 0x4a61320 j: 0 k 0 l 0 teams[l][j]->laids_size 1
+-------TEst--------
+avant c 0x4a637a0
+apres
+avant c 0x4a635c0
+apres
+b->teams[l][j]->laids[k] 0x4a63840 b->teams[l][j]->laids 0x4a63b60 b->teams[l][j] 0x4a61400 j: 1 k 0 l 0 teams[l][j]->laids_size 1
+-------TEst--------
+avant c 0x4a63840
+apres
+avant c 0x4a638e0
+apres
+b->teams[l][j]->laids[k] 0x4a63660 b->teams[l][j]->laids 0x4a63ac0 b->teams[l][j] 0x4a61390 j: 0 k 0 l 1 teams[l][j]->laids_size 1
+-------TEst--------
+avant c 0x4a63660
+apres
+avant c 0x4a63980
+apres
+b->teams[l][j]->laids[k] 0x4a63700 b->teams[l][j]->laids 0x4a63c00 b->teams[l][j] 0x4a61470 j: 1 k 0 l 1 teams[l][j]->laids_size 1
+-------TEst--------
+avant c 0x4a63700
+apres
+----------TEST-----------
+----------TEST-----------
+----------TEST-----------
+----------TEST-----------
+----------TEST-----------
+----------TEST-----------
+----------TEST-----------
+----------TEST-----------
+////////////value 1
+
+////////////value 2
+
+////////////value 1
+
+////////////value 2
+
+avant c 0x4a63ca0
+apres
+////////////value 2
+
+////////////value 2
+
+////////////value 2
+
+////////////value 2
+
+avant c 0x4a638e0
+apres
+////////////value 2
+
+////////////value 1
+
+////////////value 2
+
+////////////value 1
+
+avant c 0x4a63fd0
+apres
+////////////value 1
+
+////////////value 2
+
+////////////value 1
+
+////////////value 2
+
+avant c 0x4a63980
+apres
+avant c 0x4a614e0
+apres
+avant c 0x4a63f20
+apres
+b->teams[l][j]->laids[k] 0x4a637a0 b->teams[l][j]->laids 0x4a641e0 b->teams[l][j] 0x4a61320 j: 0 k 0 l 0 teams[l][j]->laids_size 2
+-------TEst--------
+avant c 0x4a637a0
+apres
+b->teams[l][j]->laids[k] 0x4a63ca0 b->teams[l][j]->laids 0x4a641e0 b->teams[l][j] 0x4a61320 j: 0 k 1 l 0 teams[l][j]->laids_size 2
+-------TEst--------
+avant c 0x4a63ca0
+apres
+avant c 0x4a635c0
+apres
+avant c 0x4a63d40
+apres
+b->teams[l][j]->laids[k] 0x4a63840 b->teams[l][j]->laids 0x4a64320 b->teams[l][j] 0x4a61400 j: 1 k 0 l 0 teams[l][j]->laids_size 2
+-------TEst--------
+avant c 0x4a63840
+apres
+b->teams[l][j]->laids[k] 0x4a63fd0 b->teams[l][j]->laids 0x4a64320 b->teams[l][j] 0x4a61400 j: 1 k 1 l 0 teams[l][j]->laids_size 2
+-------TEst--------
+avant c 0x4a63fd0
+apres
+avant c 0x4a63de0
+apres
+avant c 0x4a64080
+apres
+b->teams[l][j]->laids[k] 0x4a63660 b->teams[l][j]->laids 0x4a64280 b->teams[l][j] 0x4a61390 j: 0 k 0 l 1 teams[l][j]->laids_size 2
+-------TEst--------
+avant c 0x4a63660
+apres
+b->teams[l][j]->laids[k] 0x4a638e0 b->teams[l][j]->laids 0x4a64280 b->teams[l][j] 0x4a61390 j: 0 k 1 l 1 teams[l][j]->laids_size 2
+-------TEst--------
+avant c 0x4a638e0
+apres
+avant c 0x4a63e80
+apres
+avant c 0x4a64130
+apres
+b->teams[l][j]->laids[k] 0x4a63700 b->teams[l][j]->laids 0x4a643c0 b->teams[l][j] 0x4a61470 j: 1 k 0 l 1 teams[l][j]->laids_size 2
+-------TEst--------
+avant c 0x4a63700
+apres
+b->teams[l][j]->laids[k] 0x4a63980 b->teams[l][j]->laids 0x4a643c0 b->teams[l][j] 0x4a61470 j: 1 k 1 l 1 teams[l][j]->laids_size 2
+-------TEst--------

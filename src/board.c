@@ -6,7 +6,7 @@
 
 board create_board() {
     board b = malloc(sizeof(struct board_base));
-
+    if (!b) return NULL;
     b->teams = malloc(2 * sizeof(player*));
     for (int i = 0; i < 2; i++) 
     {
@@ -34,12 +34,26 @@ void free_board(board b)
     }
     free(b->teams);
     free(b->score);
-    free(b->c);
+    if (b->c) {
+        for (int i = 0; b->c[i]; i++) {
+            free_card(b->c[i]);
+        }
+        free(b->c);
+    }
     free(b);
 }
 
 void add_team(board b) {
-     b->teams = malloc(2 * sizeof(player*));
+    if (b->teams) {
+        for (int i = 0; i < 2; i++) {
+            free(b->teams[i]);
+        }
+        free(b->teams);
+    }
+    if (b->score) {
+        free(b->score);
+    }
+    b->teams = malloc(2 * sizeof(player*));
     for (int i = 0; i < 2; i++) 
     {
         b->teams[i] = malloc(2 * sizeof(player));
@@ -65,8 +79,9 @@ void add_player_to_team(board b, int team_id, player p)
     }
 }
 
-int get_number_of_teams(board b) 
+int get_number_of_teams() 
 {
+
     return 2;
 }
 
@@ -99,17 +114,6 @@ player get_player(board b, int team_id, int player_index)
     }
 }
 
-int get_score_of_team(board b, int team_id) 
-{
-    if (team_id < 0 || team_id >= 2) 
-    {
-        return -1;
-    }
-    else 
-    {
-        return b->score[team_id];
-    }
-}
 
 void set_score_of_team(board b, int team_id, int score) 
 {
@@ -150,16 +154,16 @@ int get_number_of_out_of_game_cards(board b)
     return count;
 }
 
-card get_out_of_game_card(board b, int index) 
+card get_out_of_game_card(board b, int card_index) 
 {
     int count = get_number_of_out_of_game_cards(b);
-    if (index < 0 || index >= count)
+    if (card_index < 0 || card_index >= count)
     {
        return NULL; 
     }
     else 
     {
-        return b->c[index];
+        return b->c[card_index];
     }
 }
 
@@ -179,6 +183,7 @@ void remove_out_of_game_card(board b, card c)
     {
         return;
     }
+    free_card(b->c[index]);
     card* new_cards = malloc(count * sizeof(card));
     int j = 0;
     for (int i = 0; i < count; i++) 
@@ -192,6 +197,7 @@ void remove_out_of_game_card(board b, card c)
     free(b->c);
     b->c = new_cards;
 }
+
 
 
 /*************** AJout du lot_e ***************/
@@ -265,4 +271,33 @@ void apply_special_effect(board b, card c){
             break;
     }
     
+}
+
+//E.3 : distribue 20 jetons à chaque joueur au début de la partie 
+void distribute_initial_tokens(board b) {
+    for (int i = 0; i < 2; i++) {
+        for (int j = 0; j < 2; j++) {
+            player p = b->teams[i][j];
+            if (p) {
+                set_tokens(p, 20);
+            }
+        }
+    }
+}
+
+//E.3 : calcule le score de l'équipe en sommant les jetons des joueurs
+int get_score_of_team(board b, int team_id) 
+{
+    if (team_id < 0 || team_id >= 2) 
+    {
+        return -1;
+    }
+    int score = 0;
+    for (int i = 0; i < 2; i++) {
+        player p = b->teams[team_id][i];
+        if (p) {
+            score += get_tokens(p);
+        }
+    }
+    return score;
 }

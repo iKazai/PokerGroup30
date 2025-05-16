@@ -11,6 +11,10 @@ void simulate_games(int n) {
         int total_score1 = 0;
         
         board b = create_board();
+        if(!b){
+            perror("[simulate_games] : The board is null\n");
+            exit(1);
+        }
         add_team(b);
 
         player p0 = create_player();

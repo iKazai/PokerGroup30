@@ -109,8 +109,14 @@ void remove_card_from_hand(player p, card c){
 
 void play_card(player p, card c){
     
-    if (p==NULL || c==NULL) return ;
-    if (p->laids_size>=2) return; // 2 cartes maximum sur la table par le joueur
+    if (p==NULL || c==NULL){
+        perror("[play_card]: p or c is NULL");
+        exit(1);
+    }
+    if (p->laids_size>=2){
+        perror("[play_card]: Too much cards laids.");
+        exit(1); // 2 cartes maximum sur la table par le joueur
+    }
 
     card* new_laids = realloc(p->laids, (p->laids_size + 1) * sizeof(card));
     if (new_laids == NULL) return;

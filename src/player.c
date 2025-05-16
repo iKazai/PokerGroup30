@@ -92,7 +92,7 @@ void remove_card_from_hand(player p, card c){
         }
     }
     if (tmp == -1) return ;//si la carte n'est pas trouvée
-    free_card(p->deck[tmp]);
+    // free_card(p->deck[tmp]);
     for (int i = tmp; i < p->deck_size-1; i++) { //decaler les cartes après la carte supprimé pour réafecter les indices 
         p->deck[i] = p->deck[i+1];
     }

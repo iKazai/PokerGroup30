@@ -7,7 +7,7 @@
 typedef struct board_base* board;
 struct board_base {
     player** teams;  
-    card* c;          
+    card* c;        
     int team_id[2]; 
     int* score;    
 };
@@ -28,7 +28,6 @@ void free_board(board b);
 /**
  * \brief Ajouter une équipe sur un plateau
  * \param b : un plateau
-
  */
 void add_team(board b);
 

@@ -6,7 +6,7 @@
 void simulate_games(int n) {
     clock_t start = clock();
     int count_win = 0;
-    for (int i=0;i<n;i++){ //20 parties
+    for (int i=0;i<1;i++){ //20 parties
         int total_score0 = 0;
         int total_score1 = 0;
         
@@ -89,18 +89,7 @@ void simulate_games(int n) {
                     }
                 }  
             }
-
-        if(i != n-1){
-            for(int k=0;k<2;k++){ 
-                for (int l = 0; l < 2; l++) { 
-                    for (int j = 0; j < b->teams[k][l]->deck_size; j++) { 
-                        free_card(b->teams[k][l]->deck[j]);
-                    } 
-                    for (int j = 0; j < b->teams[k][l]->laids_size; j++) { 
-                        free_card(b->teams[k][l]->laids[j]);
-                    } 
-                }
-            }
+// Il faut supprimer les cartes du round actuel
         }
         
         total_score0 += get_score_of_team(b,0);

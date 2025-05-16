@@ -12,7 +12,6 @@ void simulate_games(int n) {
         
         board b = create_board();
         add_team(b);
-        add_team(b);
 
         player p0 = create_player();
         player p1 = create_player();

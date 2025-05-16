@@ -124,6 +124,13 @@ void remove_out_of_game_card(board b, card c);
  */
 void apply_special_effect(board b, card c);
 
+
+/*************** AJout du lot_e ***************/
+
+/**
+ * \brief distribue les jetons initiaux à chaque joueur
+ * \param b Le plateau de jeu
+ */
 void distribute_initial_tokens(board b);
 
 

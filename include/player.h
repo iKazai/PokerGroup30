@@ -116,6 +116,11 @@ int get_slate(player);
 */
 void set_slate(player, int);  
 
+
+
+/*************** AJout du lot_e ***************/
+
+
 /* E.3 : Récupère le nombre total de jetons du joueur */
 /**
  * \brief Renvoie le nombre total de jetons possédés par le joueur.

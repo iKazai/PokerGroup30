@@ -10,6 +10,8 @@ void simulate_games(int n) {
         int total_score0 = 0;
         int total_score1 = 0;
         
+        
+
         board b = create_board();
         if(!b){
             perror("[simulate_games] : The board is null\n");
@@ -26,6 +28,7 @@ void simulate_games(int n) {
         add_player_to_team(b, 1, p1);
         add_player_to_team(b, 0, p2);
         add_player_to_team(b, 1, p3);
+
         for (int o = 0; o < n; o++) {// n tours 
             for(int k=0;k<2;k++){ // 4 joueurs
                 for (int l = 0; l < 2; l++) { //l equipes
@@ -90,16 +93,16 @@ void simulate_games(int n) {
             for (int l = 0; l < 2; l++) { //l equipes
                 for (int j = 0; j < 2; j++) { //joueur j de l'equipe l
                     for (int k = 0; k < b->teams[l][j]->deck_size; k++) {
-                        free_card(b->teams[l][j]->deck[k]);
+                        // free_card(b->teams[l][j]->deck[k]);
                     }
                     for (int k = 0; k < b->teams[l][j]->laids_size; k++) {
-                        printf("b->teams[l][j]->laids[k] %p ",b->teams[l][j]->laids[k]);
-                        printf("b->teams[l][j]->laids %p ",b->teams[l][j]->laids);
-                        printf("b->teams[l][j] %p ",b->teams[l][j]);
-                        printf("j: %d k %d l %d teams[l][j]->laids_size %d\n",j,k,l,b->teams[l][j]->laids_size);
-                        printf("-------TEst--------\n");
-                        fflush(stdout);
-                        free_card(b->teams[l][j]->laids[k]);
+                        // printf("b->teams[l][j]->laids[k] %p ",b->teams[l][j]->laids[k]);
+                        // printf("b->teams[l][j]->laids %p ",b->teams[l][j]->laids);
+                        // printf("b->teams[l][j] %p ",b->teams[l][j]);
+                        // printf("j: %d k %d l %d teams[l][j]->laids_size %d\n",j,k,l,b->teams[l][j]->laids_size);
+                        // printf("-------TEst--------\n");
+                        // fflush(stdout);
+                        // free_card(b->teams[l][j]->laids[k]);
                     }
                 } 
             }

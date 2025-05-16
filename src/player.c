@@ -5,16 +5,17 @@
 player players[4]; //creation d'un tableau pour stocker les joueurs present sur le plateau 
 int player_count = 0; // nb de joueurs présent
 int player_id= 0; // initialisation d'un compteur pour attribuer un id unique
+
 player create_player(void){
     if (player_count>=4) return NULL;
     
     player new_player = malloc(sizeof(struct player_base));
     if (!new_player) return NULL;
     
-    new_player->deck = NULL;
+    new_player->deck = (card*)calloc(4, sizeof(card));
     new_player->deck_size = 0;
-    new_player->laids = NULL;
-    new_player->slate = NULL;
+    new_player->laids = (card*)calloc(2, sizeof(card));
+    new_player->slate = false;
     new_player->id = player_id;
     player_id++;
     new_player->team_id = -1;
@@ -113,7 +114,7 @@ void play_card(player p, card c){
         perror("[play_card]: p or c is NULL");
         exit(1);
     }
-    if (p->laids_size>=2){
+    if (p->laids_size>2){
         perror("[play_card]: Too much cards laids.");
         exit(1); // 2 cartes maximum sur la table par le joueur
     }

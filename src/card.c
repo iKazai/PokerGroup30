@@ -6,9 +6,12 @@ int card_count = 0; // nb de carte présent
 int card_id = 0; // initialisation d'un compteur pour attribuer un id unique
 
 card create_card(){
+
+    printf("\n//////-------- %d //////\n\n",card_count);
+
     if (card_count>=20){
-    printf("erreur");
-    return NULL;
+        printf("erreur");
+        return NULL;
     }
 
     

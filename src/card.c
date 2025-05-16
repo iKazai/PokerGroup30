@@ -10,10 +10,11 @@ card create_card(){
     printf("erreur");
     return NULL;
     }
+
     
     card new_card = malloc(sizeof(struct card_base));
     if (!new_card) return NULL;
-
+    
     new_card->id=card_id;
     card_id++;
     new_card->value=-1;
@@ -21,11 +22,15 @@ card create_card(){
     cards[card_count]=new_card;
     
     card_count++;
+    printf("----------TEST-----------\n");
+    fflush(stdout);
     return new_card;
 }
 
 void free_card(card c){
+    printf("avant c %p\n",c);
     free(c);
+    printf("apres\n");
     card_count--;
 }
 

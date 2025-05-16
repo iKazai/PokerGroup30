@@ -20,6 +20,7 @@ card find_min_card(player p){
     card minimum = p->deck[0];
     for (int i = 1; i < p->deck_size; i++) {
         if (p->deck[i] !=NULL){
+            printf("////////////value %d\n\n",p->deck[i]->value);
             if (p->deck[i]->value < minimum->value) {
                 minimum = p->deck[i];
         }

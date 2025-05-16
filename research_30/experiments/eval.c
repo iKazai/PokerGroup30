@@ -37,20 +37,20 @@ void simulate_games(int n) {
                     }
                 }
             }
-
+            
             paris_aleatoire(p0);
             paris_aleatoire(p1);
             paris_aleatoire(p2);
             paris_aleatoire(p3);
-
+            
             int a = get_slate(p0);
-
+            
             set_slate(p2,a);
             agressive(p0);
             agressive(p1);
             agressive(p2);
             agressive(p3);
-
+            
             int val0 = 0;
             int val1 = 0;
             for (int j=0; j<get_number_of_players_in_team(b,0);j++){
@@ -90,9 +90,15 @@ void simulate_games(int n) {
                         free_card(b->teams[l][j]->deck[k]);
                     }
                     for (int k = 0; k < b->teams[l][j]->laids_size; k++) {
-                    free_card(b->teams[l][j]->laids[k]);
+                        printf("b->teams[l][j]->laids[k] %p ",b->teams[l][j]->laids[k]);
+                        printf("b->teams[l][j]->laids %p ",b->teams[l][j]->laids);
+                        printf("b->teams[l][j] %p ",b->teams[l][j]);
+                        printf("j: %d k %d l %d teams[l][j]->laids_size %d\n",j,k,l,b->teams[l][j]->laids_size);
+                        printf("-------TEst--------\n");
+                        fflush(stdout);
+                        free_card(b->teams[l][j]->laids[k]);
                     }
-            } 
+                } 
             }
         }
         
@@ -103,10 +109,12 @@ void simulate_games(int n) {
         }
         free_board(b);
     }
+
+
     clock_t end = clock();
     double duration = (double)(end - start) / CLOCKS_PER_SEC;
     printf("Total score: %d\n", count_win);
     printf("Average score per game: %.2f\n", (double)count_win / n);
     printf("Total time: %.2fs\n", duration);
-
+    
 }

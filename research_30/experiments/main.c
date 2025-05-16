@@ -14,5 +14,6 @@ int main() {
     int n =rand() % 18+3;
     simulate_games(n);
     printf("test");
+    fflush(stdout);
     return -1;
 }

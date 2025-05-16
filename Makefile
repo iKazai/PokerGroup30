@@ -57,5 +57,6 @@ $(SEARCH_TARGET): $(SEARCH_OBJ) $(OBJDIR)/board.o $(OBJDIR)/player.o $(OBJDIR)/c
 clean:
 	rm -rf $(OBJDIR) $(BINDIR)
 	rm research_30/experiments/*.o
+	rm research_30/experiments/test_eval
 
 .PHONY: all clean

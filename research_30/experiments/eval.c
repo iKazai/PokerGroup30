@@ -6,7 +6,7 @@
 void simulate_games(int n) {
     clock_t start = clock();
     int count_win = 0;
-    for (int i=0;i<20;i++){ //20 parties
+    for (int i=0;i<n;i++){ //20 parties
         int total_score0 = 0;
         int total_score1 = 0;
         
@@ -89,21 +89,14 @@ void simulate_games(int n) {
                     }
                 }  
             }
-            //free toutes les cartes sur le plateau et en main
-            for (int l = 0; l < 2; l++) { //l equipes
-                for (int j = 0; j < 2; j++) { //joueur j de l'equipe l
-                    for (int k = 0; k < b->teams[l][j]->deck_size; k++) {
-                        // free_card(b->teams[l][j]->deck[k]);
-                    }
-                    for (int k = 0; k < b->teams[l][j]->laids_size; k++) {
-                        // printf("b->teams[l][j]->laids[k] %p ",b->teams[l][j]->laids[k]);
-                        // printf("b->teams[l][j]->laids %p ",b->teams[l][j]->laids);
-                        // printf("b->teams[l][j] %p ",b->teams[l][j]);
-                        // printf("j: %d k %d l %d teams[l][j]->laids_size %d\n",j,k,l,b->teams[l][j]->laids_size);
-                        // printf("-------TEst--------\n");
-                        // fflush(stdout);
-                        // free_card(b->teams[l][j]->laids[k]);
-                    }
+
+        for(int k=0;k<2;k++){ 
+            for (int l = 0; l < 2; l++) { 
+                for (int j = 0; j < b->teams[k][l]->deck_size; j++) { 
+                    free_card(b->teams[k][l]->deck[j]);
+                } 
+                for (int j = 0; j < b->teams[k][l]->laids_size; j++) { 
+                    free_card(b->teams[k][l]->laids[j]);
                 } 
             }
         }
@@ -115,8 +108,9 @@ void simulate_games(int n) {
         }
         free_board(b);
     }
-
-
+}
+    
+    
     clock_t end = clock();
     double duration = (double)(end - start) / CLOCKS_PER_SEC;
     printf("Total score: %d\n", count_win);

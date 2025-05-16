@@ -11,8 +11,8 @@
 
 int main() {
     srand(time(0));
-    int n =rand() % 18+3;
-    simulate_games(n);
+    //int n =rand() % 18+3;
+    simulate_games(2);
     printf("test");
     fflush(stdout);
     return -1;

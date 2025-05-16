@@ -4,26 +4,24 @@
 #include "player.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
+
+struct card_base {
+    int id;
+    int value;
+    
+    bool is_special;
+    char* name; 
+    char* desc;
+    
+};
 
 
 /**
  * \brief Définition d'un type abstrait card. Une variable de type card permet d'accéder aux informations d'une carte.
  */
 typedef struct card_base* card;
-
-struct card_base {
-    int id;
-    int value;
-};
-
-struct special_card_base {
-    struct card_base c;
-    char* name; 
-    char* desc;
-};
-
-typedef struct special_card_base* special_card;
 
 /**
  * \brief Crée une nouvelle carte sans valeur initiale
@@ -66,12 +64,33 @@ int get_value(card);
  */
 void set_value(card , int);
 
+
+
+/*************** AJout du lot_e ***************/
+
+
+
 /**
  * \brief Libère une carte spéciale.
  * \param sc La carte qu'on veut libérer.
  * \return void
  * \ensures La mémoire est libérée 
  */
-void free_special_card(special_card sc);
+void free_special_card(card sc);
+
+/**
+ * \brief Affiche le nom d'une carte spéciale dans la console et renvoie un pointeur sur le nom.
+ * \param sc La carte dont on veut le nom
+ * \return Un pointeur vers le nom de type char*
+ * \ensures Un pointeur vers le nom est renvoyé.
+ */
+char* get_special_card_name(card sc);
+
+/**
+ * \brief Affiche la description d'une carte spéciale dans la console.
+ * \param sc La carte dont on veut la description
+ * \return void
+ */
+void display_special_card_desc(card sc);
 
 #endif

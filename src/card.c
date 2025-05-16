@@ -20,10 +20,6 @@ card create_card(){
     return new_card;
 }
 
-void free_card(card c){
-    free(c);
-}
-
 int get_card_id(card c){
     return c->id;
 }
@@ -38,15 +34,44 @@ card get_card_by_id(int card_id){
 }
 
 int get_value(card c){
-    c->value;
+    return c->value;
 }
 
 void set_value(card c , int val){
-    c->value=val;
+    c->value = val;
 }
 
-void free_special_card(special_card sc){
-    free_card(&(sc->c));
+
+
+
+
+/*************** AJout du lot_e ***************/
+
+
+void free_card(card sc){
+    if(sc->is_special){
+        free(sc->name);
+        free(sc->desc);
+    }
     free(sc);
+    return;
+}
+
+char* get_special_card_name(card sc){
+    if(!sc->is_special){
+        perror("[get_special_card_name] : The card is not special.");
+        return;
+    }
+    char* n = sc->name;
+    printf("Carte spéciale %d: %s\n",sc->id, n);
+    return n;
+}
+
+void display_special_card_desc(card sc){
+    if(!sc->is_special){
+        perror("[display_special_card_desc] : The card is not special.");
+        return;
+    }
+    printf("Carte spéciale: %d: %s\n",sc->id, sc->desc);
     return;
 }

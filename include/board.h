@@ -114,4 +114,15 @@ card get_out_of_game_card(board b, int card_index);
 void remove_out_of_game_card(board b, card c);
 
 
+/*************** AJout du lot_e ***************/
+
+/**
+ * \brief Applique l'effet de la carte c sur le plateau b
+ * \param b : un plateau
+ * \param c : une carte
+ * \return void
+ */
+void apply_special_effect(board b, card c);
+
+
 #endif

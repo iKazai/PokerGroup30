@@ -33,6 +33,8 @@ card create_card();
 /**
  * \brief Libère toute la mémoire allouée à une carte.
  * \param card La carte à libérer.
+ * \ensures La mémoire est libérée, 
+ * \ensures si c'est une carte spéciale, la mémoire de son nom et sa description son libérée
  */
 void free_card(card);
 
@@ -69,14 +71,6 @@ void set_value(card , int);
 /*************** AJout du lot_e ***************/
 
 
-
-/**
- * \brief Libère une carte spéciale.
- * \param sc La carte qu'on veut libérer.
- * \return void
- * \ensures La mémoire est libérée 
- */
-void free_special_card(card sc);
 
 /**
  * \brief Affiche le nom d'une carte spéciale dans la console et renvoie un pointeur sur le nom.

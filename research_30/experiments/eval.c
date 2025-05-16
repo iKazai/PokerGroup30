@@ -90,14 +90,16 @@ void simulate_games(int n) {
                 }  
             }
 
-        for(int k=0;k<2;k++){ 
-            for (int l = 0; l < 2; l++) { 
-                for (int j = 0; j < b->teams[k][l]->deck_size; j++) { 
-                    free_card(b->teams[k][l]->deck[j]);
-                } 
-                for (int j = 0; j < b->teams[k][l]->laids_size; j++) { 
-                    free_card(b->teams[k][l]->laids[j]);
-                } 
+        if(i != n-1){
+            for(int k=0;k<2;k++){ 
+                for (int l = 0; l < 2; l++) { 
+                    for (int j = 0; j < b->teams[k][l]->deck_size; j++) { 
+                        free_card(b->teams[k][l]->deck[j]);
+                    } 
+                    for (int j = 0; j < b->teams[k][l]->laids_size; j++) { 
+                        free_card(b->teams[k][l]->laids[j]);
+                    } 
+                }
             }
         }
         

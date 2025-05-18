@@ -44,7 +44,6 @@
 
 $\mathbb \ = \frac{1}{2} * q₁ * p₁ +  \frac{1}{6} +  \frac{2}{3}*(1 - q₁)$
 
-
 ## Meilleure réponse de J1
 
 Maximiser \(  $\mathbb \ E[G^1_1]$ \) en \( p₁ \), c’est une fonction affine → max pour :

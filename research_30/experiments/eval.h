@@ -13,6 +13,6 @@
  * \param n le nombre de tours
  * \ensures Affiche le temps mit
  */
-void simulate_games(int n);
+void simulate_games(int num_games, int num_rounds);
 
 #endif

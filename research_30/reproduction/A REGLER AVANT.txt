@@ -1,0 +1,16 @@
+j'ai constaté des différence dans nos codes qui empêche la compilation (dans le fichier main.c seulement), 
+je me suis permis donc dans certains cas de faire des modifications en me basant sur le rapport pdf 
+et les commentaires du code (certaines fonctions utilisé ne sont pas défini dans les fichiers ni dans les taches précédentes):
+
+
+add_point_to_team(b, t) changé en set_score_of_team(b, t,1)
+
+create_player(100 * t + p): create_player() j'ai pas compris le 100*t +p de plus que create_player ne prends pas d'arguments
+
+get_team_score(b, 0): get_score_of_team(b,0)
+
+destroy_player(players[t][p]): free_player(players[t][p])
+
+destroy_card(c): free_card(c)
+
+pas possible de compiler car pas de fonction main dans main.c (avec mon compilateur Windows en tout cas donc à essayer sur linux)

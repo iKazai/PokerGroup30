@@ -23,9 +23,9 @@ void apply_points_1(board b, player players[2][2], int s0, int s1) {
         for (int p = 0; p < 2; p++) {
             int slate = get_slate(players[t][p]);
             if (winning_team == t && slate == 1) {
-                add_point_to_team(b, t);
+                set_score_of_team(b, t,1);
             } else if (winning_team != -1 && winning_team != t && slate == 0) {
-                add_point_to_team(b, t);
+                set_score_of_team(b, t,1);
             }
         }
     }
@@ -35,7 +35,7 @@ void free_all_cards_1(player p) {
     while (get_size_of_hand(p) > 0) {
         card c = get_card_in_hand(p, 0);
         remove_card_from_hand(p, c);
-        destroy_card(c);
+        free_card(c);
     }
 }
 
@@ -43,7 +43,7 @@ void free_all_card_1(player p) {
     while (get_number_of_played_cards(p) > 0) {
         card c = get_played_card(p, 0);
         remove_played_card(p, c);
-        destroy_card(c);
+        free_card(c);
     }
 }
 
@@ -53,7 +53,7 @@ int partie_1(int n) {
 
     for (int t = 0; t < 2; t++) {
         for (int p = 0; p < 2; p++) {
-            players[t][p] = create_player(100 * t + p);
+            players[t][p] = create_player();
             add_player_to_team(b, t, players[t][p]);
         }
     }
@@ -81,13 +81,13 @@ int partie_1(int n) {
     int s1 = sum_played_cards_1(b, 1);
     apply_points_1(b, players, s0, s1);
 
-    int result = (get_team_score(b, 0) > get_team_score(b, 1)) ? 1 : 0;
+    int result = (get_score_of_team(b, 0) > get_score_of_team(b, 1)) ? 1 : 0;
 
     for (int t = 0; t < 2; t++) {
         for (int p = 0; p < 2; p++) {
             free_all_cards_1(players[t][p]);
             free_all_card_1(players[t][p]);
-            destroy_player(players[t][p]);
+            free_player(players[t][p]);
         }
     }
     return result;
@@ -127,13 +127,13 @@ int partie_2(int n) {
     int s1 = sum_played_cards_1(b, 1);
     apply_points_1(b, players, s0, s1);
 
-    int result = (get_team_score(b, 0) > get_team_score(b, 1)) ? 1 : 0;
+    int result = (get_score_of_team(b, 0) > get_score_of_team(b, 1)) ? 1 : 0;
 
     for (int t = 0; t < 2; t++) {
         for (int p = 0; p < 2; p++) {
             free_all_cards_1(players[t][p]);
             free_all_card_1(players[t][p]);
-            destroy_player(players[t][p]);
+            free_player(players[t][p]);
         }
     }
     return result;

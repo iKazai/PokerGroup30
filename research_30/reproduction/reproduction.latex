@@ -1,0 +1,38 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath}
+\usepackage{geometry}
+\geometry{margin=2cm}
+
+\begin{document}
+
+\title{Rapport de reproductibilité -- Tâche G.2}
+\author{Groupe 30}
+\maketitle
+
+\section{Introduction}
+Ce rapport évalue la reproductibilité des expériences décrites dans le rapport \texttt{experience.pdf} d'un autre groupe, qui teste un algorithme probabiliste implémenté dans \texttt{probabiliste.c}. Nous avons reproduit leurs expériences dans le dossier \texttt{research\_30/reproduction/} et comparé les résultats obtenus.
+
+\section{Description des expériences reproduites}
+Selon \texttt{experience.pdf}, l'autre groupe a effectué   ...
+
+Nous avons reproduit ces expériences en compilant \texttt{main.c}, \texttt{probabiliste.c}, et les fichiers de support (\texttt{src/board.c}, \texttt{src/player.c}, \texttt{src/card.c}) avec un \texttt{Makefile} adapté. Les dossiers \texttt{src/} et \texttt{include/} ont été copiés depuis \texttt{research\_30/experiments/} pour respecter les inclusions de \texttt{probabiliste.c}. Les expériences ont été exécutées plusieurs fois pour observer les variations.
+
+\section{Résultats}
+Voici des résultats typiques obtenus :
+\begin{itemize}
+    ...
+\end{itemize}
+
+\subsection{Comparaison avec le rapport de l'autre groupe}
+Le rapport \texttt{experience.pdf} indique que   ...  . Nos résultats sont dans une plage similaire, ce qui suggère que l'algorithme probabiliste a une performance comparable à celle rapportée. Cependant, .... Cela pourrait indiquer ...
+
+\subsection{Limitations}
+La reproduction a été réalisée avec succès en utilisant les fichiers de support de notre projet (\texttt{board.c}, \texttt{player.c}, \texttt{card.c}) ...
+
+\section{Conclusion}
+Nos résultats confirment partiellement ceux de l'autre groupe dans une plage comparable. ... ect
+
+\end{document}

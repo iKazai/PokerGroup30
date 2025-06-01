@@ -9,7 +9,7 @@
 /** 
 * \brief Génère un pari aléatoire pour un joueur
 * \param Un joueur
-* \return aléatoire un paris : true (Victoire) ou false (Défaite)
+* \return rien
 */
 void paris_aleatoire(player p);
 

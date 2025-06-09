@@ -189,7 +189,7 @@ void remove_out_of_game_card(board b, card c) {
 
 
 
-void apply_special_effect(board b, card c){
+void apply_special_effect(board b, card c){//test
     if(!c->is_special){
         perror("[apply_special_effect]: The card is not special.");
         return;

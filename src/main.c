@@ -113,10 +113,6 @@ int main() {
     int score_team1 = get_score_of_team(b, 0);
     int score_team2 = get_score_of_team(b, 1);
 
-    // Affichage des scores finaux
-    int score_team1 = get_score_of_team(b, 0);
-    int score_team2 = get_score_of_team(b, 1);
-
     // Détermination du vainqueur
     if (score_team1 > score_team2) {
         display_message("L'équipe 1 a gagné !");

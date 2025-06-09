@@ -10,19 +10,19 @@ void display_card(card c){
 }
 
 void display_board(board b){
-    for(int i = 0; i < 2; i++){
-        printf("L'équipe %d:\n", b->team_id[i]);
-        printf("Score : %d\n", b->score[i]);
-        for(int j = 0; j < 2; j++){
-            printf("Le joueur %d:\n", b->teams[i][j]->id);
-            for (int k = 0; k < b->teams[i][j]->deck_size; k++){
-                printf("Carte %d : %d \n", k, get_value(b->teams[i][j]->deck[k]));
-            }
+        for(int i = 0; i < 2; i++){
+            printf("L'équipe %d:\n", b->team_id[i]);
+            printf("Score : %d\n", b->score[i]);
+            for(int j = 0; j < 2; j++){
+                printf("Le joueur %d:\n", b->teams[i][j]->id);
+                for (int k = 0; k < b->teams[i][j]->deck_size; k++){
+                    printf("Carte %d : %d \n", k, get_value(b->teams[i][j]->deck[k]));
+                }
                 
+            }
         }
-    }
-    return;
-}
+        return;
+    }   
 
 //E.3 : demande au joueur son pari (Victoire/Défaite) et le nombre de jetons à miser
 int ask_gamble(player p) {

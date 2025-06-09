@@ -66,6 +66,6 @@ void monte_carlo(int n, double p1) {
 
 int main() {
     srand(time(NULL));
-    monte_carlo(100000, 0.6);  // Exemple : p1 = 0.6
+    monte_carlo(100000, 0.6);   
     return 0;
 }

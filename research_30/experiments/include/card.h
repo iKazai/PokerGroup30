@@ -1,7 +1,7 @@
 #ifndef CARD_H
 #define CARD_H
 #include <stdio.h>
-#include "constants.h" // E.2 : Ajout pour utiliser les constantes de couleur
+#include "constante.h" // E.2 : Ajout pour utiliser les constantes de couleur
 
 /**
  * \brief Définition d'un type abstrait card. Une variable de type card permet d'accéder aux informations d'une carte.

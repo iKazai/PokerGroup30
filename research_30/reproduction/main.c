@@ -138,3 +138,15 @@ int partie_2(int n) {
     }
     return result;
 }
+
+int main(){
+    srand((unsigned int)time(NULL));
+    int n = 1000; 
+    int experience1 = partie_1(n);
+    int experience2 = partie_2(n);
+    
+    printf("Resultat de l'expérience 1: %d\n", experience1);
+    printf("Resultat de l'expérience 2: %d\n", experience2);
+    
+    return 0;
+}

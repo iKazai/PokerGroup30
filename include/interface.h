@@ -43,4 +43,11 @@ void display_end_game(board);
  */
 void display_message(char*);
 
+/*************** AJout du lot_e ***************/
+/**
+ * \brief affiche le nombre de jetons de chaque joueur
+ * \param b Le plateau de jeu
+ */
+void display_tokens(board b);
+
 #endif

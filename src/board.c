@@ -93,8 +93,8 @@ void add_player_to_team(board b, int team_id, player p) {
     }
 }
 
-int get_number_of_teams() {
-    return 2;
+int get_number_of_teams(board b) {
+    return b->number_of_teams;
 }
 
 int get_number_of_players_in_team(board b, int team_id) {

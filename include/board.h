@@ -9,7 +9,8 @@ struct board_base {
     player** teams;  
     card* c;          
     int team_id[2]; 
-    int* score;    
+    int* score;
+    int number_of_teams; // Nombre d'équipes sur le plateau   
 };
 
 
@@ -112,6 +113,26 @@ card get_out_of_game_card(board b, int card_index);
  * \param c : une carte
  */
 void remove_out_of_game_card(board b, card c);
+
+
+/*************** AJout du lot_e ***************/
+
+/**
+ * \brief Applique l'effet de la carte c sur le plateau b
+ * \param b : un plateau
+ * \param c : une carte
+ * \return void
+ */
+void apply_special_effect(board b, card c);
+
+
+/*************** AJout du lot_e ***************/
+
+/**
+ * \brief distribue les jetons initiaux à chaque joueur
+ * \param b Le plateau de jeu
+ */
+void distribute_initial_tokens(board b);
 
 
 #endif

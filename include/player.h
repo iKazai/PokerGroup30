@@ -12,6 +12,9 @@ struct player_base{
     int laids_size;   
     bool slate;
     int team_id;
+
+    int tokens; // E.3 : nombre de jetons
+    int current_bet; // E.3 : nombre de jetons misés
 };
 
 /**
@@ -111,6 +114,59 @@ int get_slate(player);
  * \brief Remplace le pari du joueur par le pari codé avec l'entier donné en entrée.
  * \param Un joueur et un entier
 */
-void set_slate(player, int);    
+void set_slate(player, int);  
+
+
+
+/*************** AJout du lot_e ***************/
+
+
+/* E.3 : Récupère le nombre total de jetons du joueur */
+/**
+ * \brief Renvoie le nombre total de jetons possédés par le joueur.
+ * \param p Un joueur
+ * \return Un entier correspondant au nombre de jetons
+ */
+int get_tokens(player p);
+
+/* E.3 : Définit le nombre total de jetons du joueur */
+/**
+ * \brief Définit le nombre total de jetons du joueur.
+ * \param p Un joueur
+ * \param tokens Un entier représentant le nouveau nombre de jetons
+ */
+void set_tokens(player p, int tokens);
+
+/* E.3 : Ajoute des jetons au total du joueur */
+/**
+ * \brief Ajoute un nombre de jetons au total du joueur.
+ * \param p Un joueur
+ * \param tokens Un entier représentant le nombre de jetons à ajouter
+ */
+void add_tokens(player p, int tokens);
+
+/* E.3 : Définit le nombre de jetons misés dans le tour actuel */
+/**
+ * \brief Définit le nombre de jetons misés par le joueur dans le tour actuel.
+ * \param p Un joueur
+ * \param tokens Un entier représentant le nombre de jetons misés
+ */
+void set_current_bet(player p, int tokens);
+
+/* E.3 : Récupère le nombre de jetons misés dans le tour actuel */
+/**
+ * \brief Renvoie le nombre de jetons misés par le joueur dans le tour actuel.
+ * \param p Un joueur
+ * \return Un entier correspondant au nombre de jetons misés
+ */
+int get_current_bet(player p);
+
+/* E.3 : Retire des jetons du total du joueur */
+/**
+ * \brief Retire un nombre de jetons du total du joueur.
+ * \param p Un joueur
+ * \param tokens Un entier représentant le nombre de jetons à retirer
+ */
+void remove_tokens(player p, int tokens);
 
 #endif

@@ -45,7 +45,7 @@ int main() {
         // Phase de placement des cartes
         for (int i = 0; i < 4; i++) {
             player p = get_player(b, i / 2, i % 2);
-            int nb_cards = ask_number_of_played_cards(p); // Demande combien de cartes poser (1 ou 2)
+            int nb_cards = get_number_of_played_cards(p); // Demande combien de cartes poser (1 ou 2)
             for (int j = 0; j < nb_cards; j++) {
                 card c = ask_card(p); // Demande quelle carte poser
                 play_card(p, c); // Pose la carte sur la table

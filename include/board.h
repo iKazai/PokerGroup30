@@ -9,7 +9,8 @@ struct board_base {
     player** teams;  
     card* c;          
     int team_id[2]; 
-    int* score;    
+    int* score;
+    int number_of_teams; // Nombre d'équipes sur le plateau   
 };
 
 

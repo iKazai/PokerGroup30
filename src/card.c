@@ -1,6 +1,6 @@
 #include "card.h"
 
-#define MAX_CARDS 20
+#define MAX_CARDS 200
 
 static card cards[MAX_CARDS]; //creation d'un tableau pour stocker les cartes presente sur le plateau 
 static int card_count = 0; // nb de carte présent
@@ -16,35 +16,13 @@ card create_card() {
     if (!new_card) return NULL;
 
     new_card->id = card_id++;
-    new_card->value = -1;
+    new_card->value = rand()%2;
 
     cards[card_count++] = new_card;
 
     return new_card;
 }
 
-void free_card(card c) {
-    if (!c) return;
-
-    // Trouver la carte dans le tableau
-    int found = 0;
-    for (int i = 0; i < card_count; i++) {
-        if (cards[i] == c) {
-            found = 1;
-            for (int j = i; j < card_count - 1; j++) {
-                cards[j] = cards[j + 1];
-            }
-            break;
-        }
-    }
-
-    if (found) {
-        card_count--;
-        free(c);
-    } else {
-        fprintf(stderr, "[free_card] Card not found in registry\n");
-    }
-}
 
 int get_card_id(card c) {
     return c ? c->id : -1;
@@ -85,7 +63,7 @@ void free_card(card sc){
 char* get_special_card_name(card sc){
     if(!sc->is_special){
         perror("[get_special_card_name] : The card is not special.");
-        return;
+        return NULL;
     }
     char* n = sc->name;
     printf("Carte spéciale %d: %s\n",sc->id, n);
@@ -99,4 +77,17 @@ void display_special_card_desc(card sc){
     }
     printf("Carte spéciale: %d: %s\n",sc->id, sc->desc);
     return;
+}
+
+void set_special(card c, int special) {
+    if (c != NULL) {
+        c->is_special = special;
+    }
+}
+
+int get_special(card c) {
+    if (c != NULL) {
+        return c->is_special;
+    }
+    return -1; // Valeur par défaut en cas d'erreur
 }

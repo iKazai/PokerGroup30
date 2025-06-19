@@ -20,8 +20,10 @@ OBJ = $(SRC:.c=.o)
 CC = gcc
 CFLAGS = -Wall -Wextra -std=c11 -g -I$(INC_DIR)
 
-# Règle principale
+# Règle principale : compile → exécute → clean
 all: $(EXEC)
+	./$(EXEC)
+	$(MAKE) clean
 
 # Génération de l'exécutable
 $(EXEC): $(OBJ)
@@ -29,7 +31,7 @@ $(EXEC): $(OBJ)
 
 # Nettoyage
 clean:
-	rm -f $(OBJ) $(EXEC)
+	- rm -f $(OBJ) $(EXEC)
 
 fclean: clean
 re: fclean all

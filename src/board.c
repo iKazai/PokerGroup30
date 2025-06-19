@@ -93,8 +93,8 @@ void add_player_to_team(board b, int team_id, player p) {
     }
 }
 
-int get_number_of_teams() {
-    return 2;
+int get_number_of_teams(board b) {
+    return b->number_of_teams;
 }
 
 int get_number_of_players_in_team(board b, int team_id) {
@@ -113,10 +113,6 @@ player get_player(board b, int team_id, int player_index) {
     return b->teams[team_id][player_index];
 }
 
-int get_score_of_team(board b, int team_id) {
-    if (!b || team_id < 0 || team_id >= 2) return -1;
-    return b->score[team_id];
-}
 
 void set_score_of_team(board b, int team_id, int score) {
     if (!b || team_id < 0 || team_id >= 2) return;
@@ -186,76 +182,6 @@ void remove_out_of_game_card(board b, card c) {
 
 /*************** AJout du lot_e ***************/
 
-
-
-
-void apply_special_effect(board b, card c){//test
-    if(!c->is_special){
-        perror("[apply_special_effect]: The card is not special.");
-        return;
-    }
-    switch (c->name)
-    {
-        case "Thuy Vo":
-            name = "Choisissez une carte posée ce tour ci, cette carte devient un 1 rouge. S'il s'agit d'une carte spéciale, son pouvoir ne s'activera pas.";
-            break;
-        case "David Roussel":
-            name = "Choisissez une carte posée ce tour ci, cette carte devient un 2 noir. S'il s'agit d'une carte spéciale, son pouvoir ne s'activera pas.";
-            break;
-        case "Abass Sagna":
-            name = "Choisissez une carte posée ce tour ci, cette carte devient un 3 sans couleur. Elle n'est pas comptée dans les sommes relatives aux paris dont la couleur est noir ou rouge. S'il s'agit d'une carte spéciale, son pouvoir ne s'activera pas.";
-            break;
-        case "Renaud Rioboo":
-            name = "Choisissez une carte posée ce tour ci, cette carte devient un 4 rouge. S'il s'agit d'une carte spéciale, son pouvoir ne s'activera pas.";
-            break;
-        case "Kevin Goilard":
-            name = "Choisissez une carte posée ce tour ci, cette carte devient un 5 noir. S'il s'agit d'une carte spéciale, son pouvoir ne s'activera pas.";
-            break;
-        case "Laurence Bourard":
-            name = "Inversez le pari de toutes les joueuses. Les Victoire deviennent des Défaite et inversement. Les couleurs des paris restent inchangés.";
-            break;
-        case "Anne-Laure Ligozat":
-            name = "Les cartes mises de côté lors des tours précédents sont redistribuées aléatoirement à toutes les joueuses.";
-            break;
-        case "Vincent Fagnon":
-            name = "Lors de ce tour, les cartes de valeur 2 deviennent de valeur 5 et inversement.";
-            break;
-        case "Valentin Honoré":
-            name = "Ajoutez un tour de jeu après celui ci.";
-            break;
-        case "Fetia Bannour":
-            name = "Retirez un tour de jeu. Si ce tour était le dernier, le jeu s'arrête immédiatement, les mises ne sont pas rendues.";
-            break;
-        case "Christophe Mouilleron":
-            name = "Si la somme des cartes en jeu est un nombre premier, vous gagnez votre pari, quel que soit le résultat.";
-            break;
-        case "Djibril-Aurelien Dembele-Cabot":
-            name = "Choisissez une carte posée ce tour ci, mettez la de côté. Elle n'est pas comptée dans les sommes relatives aux paris de ce tour. S'il s'agit d'une carte spéciale, son pouvoir ne s'activera pas.";
-            break;
-        case "Lucienne Pacave":
-            name = "Choisissez une carte mise de côté et mettez là devant un adversaire avec les cartes qu'il a joué ce tour-ci. Cette carte est comptée dans les sommes relatives aux paris de sa couleur.";
-            break;
-        case "Lawanda Gaydu":
-            name = "Choisissez une carte mise de côté et mettez là devant vous avec les cartes que vous avez jouées ce tour-ci. Cette carte est comptée dans les sommes relatives aux paris de sa couleur.";
-            break;
-        case "Mathilde Mougeot":
-            name = "Les paris de ce tour rapportent deux fois plus de jetons que prévu.";
-            break;
-        case "Dimitri Watel":
-            name = "La couleur de tous les paris est remplacée par noir.";
-            break;
-        case "Cyril Benezet":
-            name = "La couleur de tous les paris est remplacée par rouge.";
-            break;
-        case "Marie Szafranski":
-            name = ""; // Aucun effet décrit
-            break;
-        default:
-            name = "La couleur de tous les paris est remplacée par multicolore.";
-            break;
-    }
-    
-}
 
 //E.3 : distribue 20 jetons à chaque joueur au début de la partie 
 void distribute_initial_tokens(board b) {

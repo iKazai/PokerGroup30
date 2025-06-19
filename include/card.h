@@ -1,7 +1,6 @@
 #ifndef CARD_H
 #define CARD_H
-#include "board.h"
-#include "player.h"
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
@@ -87,4 +86,15 @@ char* get_special_card_name(card sc);
  */
 void display_special_card_desc(card sc);
 
+/** * \brief Définit si une carte est spéciale ou non.
+ * \param c La carte à modifier.
+ * \param special Un entier indiquant si la carte est spéciale (1) ou non (0).
+ */
+void set_special(card c, int special);
+
+/** * \brief Récupère l'effet spécial d'une carte.
+ * \param c La carte dont on veut connaître l'effet spécial.
+ * \return int L'effet spécial de la carte (0 si non spéciale, 1 si spéciale).
+ */
+int get_special(card c);
 #endif

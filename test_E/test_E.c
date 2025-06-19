@@ -1,7 +1,9 @@
+// test_lotE/test_lotE.c
 #include <stdio.h>
-#include "player.h"
-#include "card.h"
-#include "board.h"
+#include "../include/player.h"
+#include "../include/card.h"
+#include "../include/board.h"
+#include <time.h>
 
 void test_gain_si_pari_reussi() {
     player p = create_player();
@@ -37,16 +39,21 @@ void test_equilibre_rouge_noir() {
     int rouge = 0, noir = 0;
 
     for (int i = 0; i < 100; i++) {
-        card c = create_card();
-        int val = get_value(c);
-        if (val == 1) rouge++;
-        else noir++;
-        free_card(c);
-    }
+    card c = create_card();
+    printf("Carte %d : ptr = %p\n", i, (void*)c);
+
+    int val = get_value(c);
+    printf("Carte %d : valeur = %d\n", i, val);
+
+    if (val == 1) rouge++;
+    else noir++;
+
+    free_card(c);
+}
 
     float ratio = (float)rouge / (rouge + noir);
     if (ratio > 0.4 && ratio < 0.6) {
-        printf("[OK] Equilibre rouge/noir à la création des cartes.\n");
+        printf("[OK] Équilibre rouge/noir à la création des cartes.\n");
     } else {
         printf("[ERREUR] Mauvais équilibre rouge/noir : %.2f\n", ratio);
     }
@@ -72,6 +79,6 @@ int main() {
     test_perte_si_pari_rate();
     test_equilibre_rouge_noir();
     test_effet_thuy_vo();
-    printf("\n=== Fin des tests Lot E. ===\n");
+    printf("\n=== Fin des tests Lot E ===\n");
     return 0;
 }
